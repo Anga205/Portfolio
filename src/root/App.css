@@ -1,0 +1,15 @@
+.slide-left {
+    transform: translateX(-50%);
+    animation: slideIn 1s forwards; /* Default animation */
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateX(0);
+    }
+}
+
+.slide-right {
+    transform: translateX(50%);
+    animation: slideIn 1s forwards; /* Default animation */
+}
