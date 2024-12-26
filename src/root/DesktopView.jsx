@@ -13,19 +13,35 @@ const Yapping = (props) => {
 };
 
 const Header = () => {
-    const [typedText, setTypedText] = createSignal(""); // Tracks the text being typed
+    const [typedText, setTypedText] = createSignal("");
 
     createEffect(() => {
-        const text = "Hello there!";
-        let i = 0;
-        const interval = setInterval(() => {
-        if (i === text.length) {
-            clearInterval(interval); // Stop the interval when the text is fully typed
-        } else {
-            setTypedText((prev) => prev + text[i]); // Add one character at a time
-            i++;
+        const phrases = ["Hello there! ", "Namaskara! ", "Welcome Back!", "Assalamualaikum! "];
+        let currentPhrase = 0;
+        let currentChar = 0;
+        let waitTime = 50;
+        let builder = () => {
+            let interval = setInterval(()=>{
+                currentChar++
+                setTypedText(phrases[currentPhrase].slice(0,currentChar));
+                if(currentChar === phrases[currentPhrase].length){
+                    clearInterval(interval)
+                    setTimeout(destroy, 1000);
+                }
+            },waitTime)
         }
-        }, 100);
+        let destroy = () => {
+            let interval = setInterval(()=>{
+                currentChar--
+                setTypedText(phrases[currentPhrase].slice(0,currentChar));
+                if(currentChar === 0){
+                    clearInterval(interval)
+                    currentPhrase = (currentPhrase + 1) % phrases.length
+                    setTimeout(builder,waitTime)
+                }
+            },waitTime)
+        };
+        builder();
     });
 
     return (
