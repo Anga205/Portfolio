@@ -1,10 +1,10 @@
 import './App.css';
 import DesktopView from './DesktopView';
 import MobileView from './MobileView';
+import { Route, Router } from "@solidjs/router";
 
 
-
-function App() {
+function Index() {
   return (
     <>
     <div className="hidden md:block">
@@ -17,5 +17,13 @@ function App() {
 );
 }
   
+
+function App() {
+  return (
+    <Router>
+      <Route path="/" component={Index} />
+    </Router>
+  );
+}
 
 export default App;

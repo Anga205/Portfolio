@@ -66,38 +66,40 @@ const DesktopView = () => {
         return () => window.removeEventListener('load', onLoad);
     });
     return (
-        <div className="min-h-screen w-screen md:h-screen bg-gradient-to-b from-black via-gray-950 to-gray-900 text-gray-200 bg-fixed">
-            <nav className="fixed bg-transparent p-3 w-full slide-down bg-black bg-opacity-25">
-                <div className="container mx-auto flex justify-between items-center">
-                    <div className="flex w-full justify-between items-center h-16">
-                        <img
-                            src="/anga.svg"
-                            className="h-full"
-                        />
-                        <div className="flex space-x-10">
-                            <NavbarButton text="Home" />
-                            <NavbarButton text="Projects" />
-                            <NavbarButton text="Resume" />
-                            <NavbarButton text="Contact" />
+        <>
+            <div className="min-h-screen w-screen md:h-screen bg-gradient-to-b from-black via-gray-950 to-gray-900 text-gray-200 bg-fixed">
+                <nav className="fixed bg-transparent p-3 w-full slide-down bg-black bg-opacity-25">
+                    <div className="container mx-auto flex justify-between items-center">
+                        <div className="flex w-full justify-between items-center h-16">
+                            <img
+                                src="/anga.svg"
+                                className="h-full"
+                            />
+                            <div className="flex space-x-10">
+                                <NavbarButton text="Home" />
+                                <NavbarButton text="Projects" />
+                                <NavbarButton text="Resume" />
+                                <NavbarButton text="Contact" />
+                            </div>
                         </div>
                     </div>
-                </div>
-            </nav>
-            <div className="flex justify-center items-end h-[70%]">
-                <div className="flex justify-center items-center space-x-20">
-                <div className="max-w-4xl text-start space-y-4 slide-left">
-                    <Header />
-                    <Yapping>I&apos;m a {Math.floor((Date.now() / 1000 - 1117704600) / (60 * 60 * 24 * 365))} year old competitive programming enthusiast, web developer and open-source contributer. I&apos;ve done it all, from making globally scalable secure systems APIs to making the most specialized IoT prototypes.</Yapping>
-                    <Yapping>I&apos;ve given TED talks, worked with some of the most enthusiastic tech startups, headed some of the biggest clubs in University, and competed in 40+ hackathons and coding contests.</Yapping>
-                    <Yapping>I am also lactose intolerant.</Yapping>
-                </div>
-                <img
-                    src="/me.jpg"
-                    className="w-96 aspect-1 slide-right rounded-lg"    
-                />
+                </nav>
+                <div className="flex justify-center items-end h-[70%]">
+                    <div className="px-16 max-w-7xl flex justify-center items-center space-x-20">
+                    <div className="text-start space-y-4 slide-left">
+                        <Header />
+                        <Yapping>I&apos;m a {Math.floor((Date.now() / 1000 - 1117704600) / (60 * 60 * 24 * 365))} year old competitive programming enthusiast, web developer and open-source contributer. I&apos;ve done it all, from making globally scalable secure systems APIs to making the most specialized IoT prototypes.</Yapping>
+                        <Yapping>I&apos;ve given TED talks, worked with some of the most enthusiastic tech startups, headed some of the biggest clubs in University, and competed in 40+ hackathons and coding contests.</Yapping>
+                        <Yapping>I am also lactose intolerant.</Yapping>
+                    </div>
+                    <img
+                        src="/me.jpg"
+                        className="w-96 aspect-1 slide-right rounded-lg"    
+                    />
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 
