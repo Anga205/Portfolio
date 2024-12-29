@@ -8,7 +8,7 @@ const NavbarButton = ({ text, redirect = "#" }) => {
 
 const Yapping = (props) => {
     return (
-        <p className="text-xl text-gray-400">{props.children}</p>
+        <p className="text-[2vh] text-gray-400">{props.children}</p>
     );
 };
 
@@ -46,8 +46,8 @@ const Header = () => {
 
     return (
         <div>
-        <h1 class="text-3xl font-bold">{typedText()}_</h1>
-        <h1 class="text-7xl font-bold">I&apos;m Anga.</h1>
+        <h1 class="text-[3vh] font-bold">{typedText()}_</h1>
+        <h1 class="text-[7vh] font-bold">I&apos;m Anga.</h1>
         </div>
     );
 };
@@ -94,7 +94,7 @@ const DesktopView = () => {
                     </div>
                     <img
                         src="/me.jpg"
-                        className="w-96 aspect-1 slide-right rounded-lg"    
+                        className="w-[50vh] aspect-1 slide-right rounded-lg"    
                     />
                     </div>
                 </div>
