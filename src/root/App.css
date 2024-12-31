@@ -19,7 +19,7 @@
 }
 
 .animate {
-    animation: slideIn 0.5s forwards, fadeIn 0.5s forwards;
+    animation: slideIn 0.5s forwards 4s, fadeIn 0.5s forwards 4s;
 }
 
 @keyframes fadeIn {

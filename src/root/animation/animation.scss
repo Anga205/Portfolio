@@ -1,0 +1,228 @@
+@use 'sass:list';
+
+@mixin animation($animate...) {
+    $max: list.length($animate);
+    $animations: '';
+    @for $i from 1 through $max {
+      $animations: #{$animations + list.nth($animate, $i)};
+      @if $i < $max {
+        $animations: #{$animations + ", "};
+      }
+    }
+    -webkit-animation: $animations;
+    -moz-animation: $animations;
+    -o-animation: $animations;
+    animation: $animations;
+  }
+  
+  @mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+  }
+  
+  @mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+      @content;
+    }
+    @-moz-keyframes #{$animationName} {
+      @content;
+    }
+    @-o-keyframes #{$animationName} {
+      @content;
+    }
+    @keyframes #{$animationName} {
+      @content;
+    }
+  }
+  
+  $yellow:#030712;
+  $black: #292929;
+  $bg: #191919;
+  body {
+    background-color: $bg;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .text {
+    opacity: 0;
+    position: absolute;
+    z-index: 7;
+    width: 300px;
+    height: 100px;
+    p:nth-child(2) {
+      @include animation('type2 .5s steps(60, end) 3.7s');
+    }
+    @include animation('on .6s ease-in-out 3.7s forwards');
+    
+    button {
+      border:0;
+      opacity:0;
+      background:$bg;
+      color:$yellow;
+      border:1px solid $bg;
+      letter-spacing:2px;
+      padding:.5rem 2.5rem;
+      font-size:12px;
+      font-weight:600;
+      text-transform:uppercase;
+      cursor:pointer;
+      @include transition(color .5s, background-color .5s);
+      @include animation('on .6s ease-in-out 4s forwards');
+      &:hover {
+        background:$yellow;
+        color:$bg;
+        border:1px solid $bg;
+      }
+    }
+  }
+  
+  .splash {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    &_logo {
+      position: absolute;
+      margin: -50px 0 0 -50px;
+      top: 50vh;
+      z-index: 5;
+      left: 50vw;
+      width: 100px;
+      text-align: center;
+      height: 30px;
+      font-size: 26px;
+      font-weight: 600;
+      color: #ffffff;
+      opacity: 1;
+      will-change: opacity;
+      @include animation('logo .3s ease-in 1.5s forwards, off .6s ease-in-out 3.2s forwards');
+    }
+    &_svg {
+      position: relative;
+      margin: auto;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      right: 0;
+      svg {
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: visible;
+        backface-visibility: visible;
+        rect {
+          width: 100%;
+          height: 100%;
+          fill: $yellow;
+          stroke: 0;
+          -webkit-clip-path: polygon(45vw 40vh, 55vw 40vh, 55vw 60vh, 45vw 60vh);
+          clip-path: polygon(45vw 40vh, 55vw 40vh, 55vw 60vh, 45vw 60vh);
+          @include animation('expand .7s ease-in forwards 2.7s');
+        }
+      }
+    }
+    &_minimize {
+      position: absolute;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 4;
+      svg {
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: visible;
+        backface-visibility: visible;
+        rect {
+          width: 100%;
+          height: 100%;
+          -webkit-clip-path: polygon(0vw 0vh, 100vw 0vh, 100vw 100vh, 0vw 100vh);
+          clip-path: polygon(0vw 0vh, 100vw 0vh, 100vw 100vh, 0vw 100vh);
+          @include animation('scale .2s ease-out forwards 1s, hide 1.3s ease-out forwards 1.2s');
+        }
+      }
+    }
+  }
+  
+  @include keyframes(scale) {
+    100% {
+      -webkit-clip-path: polygon(45vw 40vh, 55vw 40vh, 55vw 60vh, 45vw 60vh);
+      clip-path: polygon(45vw 40vh, 55vw 40vh, 55vw 60vh, 45vw 60vh);
+    }
+  }
+  
+  @include keyframes(hide) {
+    100% {
+      fill: transparent;
+    }
+  }
+  
+  @include keyframes (off) {
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @include keyframes (on) {
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @include keyframes (logo) {
+    100% {
+      color: $black;
+    }
+  }
+  
+  @include keyframes (type) {
+    0% {
+      width: 0;
+    }
+  }
+  
+  @include keyframes (type2) {
+    0% {
+      width: 0;
+    }
+    50% {
+      width: 0;
+    }
+    100% {
+      width: 100;
+    }
+  }
+  
+  @include keyframes(expand) {
+    0% {}
+    25% {
+      -webkit-clip-path: polygon(0vw 0vh, 55vw 40vh, 55vw 58vh, 45vw 58vh);
+      clip-path: polygon(0vw 0vh, 55vw 40vh, 55vw 60vh, 45vw 60vh);
+      fill: white;
+    }
+    50% {
+      -webkit-clip-path: polygon(0vw 0vh, 100vw 0vh, 55vw 60vh, 45vw 60vh);
+      clip-path: polygon(0vw 0vh, 100vw 0vh, 55vw 60vh, 45vw 60vh);
+      fill: $yellow;
+    }
+    75% {
+      -webkit-clip-path: polygon(0vw 0vh, 100vw 0vh, 55vw 60vh, 0vw 100vh);
+      clip-path: polygon(0vw 0vh, 100vw 0vh, 55vw 60vh, 0vw 100vh);
+      fill: white;
+    }
+    100% {
+      -webkit-clip-path: polygon(0vw 0vh, 100vw 0vh, 100vw 100vh, 0vw 100vh);
+      clip-path: polygon(0vw 0vh, 100vw 0vh, 100vw 100vh, 0vw 100vh);
+      fill: $yellow;
+    }
+  }
