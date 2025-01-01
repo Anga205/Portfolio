@@ -1,4 +1,5 @@
 import { createEffect, createSignal } from "solid-js";
+import Carousel from "./components/Carousel";
 
 const NavbarButton = ({ text, redirect = "#" }) => {
     return (
@@ -67,7 +68,10 @@ const DesktopView = () => {
     });
     return (
         <>
-            <div className="min-h-screen w-screen md:h-screen bg-gradient-to-b from-black via-gray-950 to-gray-900 text-gray-200 bg-fixed">
+            <div className="min-h-screen w-screen h-screen text-gray-200 ">
+                <div className="bg-gradient-to-b from-black via-gray-950 to-gray-900 w-screen h-screen fixed p-10">
+                    <img className="h-full opacity-10" src="/nodes.png"/>
+                </div>
                 <nav className="fixed bg-transparent p-3 w-full slide-down bg-black bg-opacity-25">
                     <div className="container mx-auto flex justify-between items-center">
                         <div className="flex w-full justify-between items-center h-16">
@@ -84,7 +88,7 @@ const DesktopView = () => {
                         </div>
                     </div>
                 </nav>
-                <div className="flex justify-center items-end h-[70%]">
+                <div className="flex justify-center items-center h-[100%]">
                     <div className="px-16 max-w-7xl flex justify-center items-center space-x-20">
                     <div className="text-start space-y-4 slide-left">
                         <Header />
@@ -92,14 +96,25 @@ const DesktopView = () => {
                         <Yapping>I&apos;ve given TED talks, worked with some of the most enthusiastic tech startups, headed some of the biggest clubs in University, and competed in 40+ hackathons and coding contests.</Yapping>
                         <Yapping>I am also lactose intolerant.</Yapping>
                     </div>
-                    <img
-                        src="/me.jpg"
-                        className="w-[50vh] aspect-1 slide-right rounded-lg"    
-                    />
+                    <div className="relative w-full">
+                        <img
+                            src="/image-border.png"
+                            alt="Background"
+                            className="w-full object-cover"
+                        />
+                        
+                        <div className="absolute top-1/2 left-1/2 w-full p-12 transform -translate-x-1/2 -translate-y-1/2">
+                            <img
+                            src="/me.jpg"
+                            alt="Foreground"
+                            className="object-cover slide-right"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
+    </>
     );
 }
 

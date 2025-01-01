@@ -19,7 +19,7 @@
 }
 
 .animate {
-    animation: slideIn 0.5s forwards 4s, fadeIn 0.5s forwards 4s;
+    animation: slideIn 0.5s forwards, fadeIn 0.5s forwards;
 }
 
 @keyframes fadeIn {
@@ -33,4 +33,47 @@
         transform: translateX(0);
         transform: translateY(0);
     }
+}
+
+
+
+
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+  
+.carousel-inner {
+display: flex;
+transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+min-width: 100%;
+transition: opacity 0.5s ease-in-out;
+opacity: 0;
+}
+
+.carousel-item.active {
+opacity: 1;
+}
+
+.carousel-control {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: rgba(0, 0, 0, 0.5);
+color: white;
+border: none;
+padding: 10px;
+cursor: pointer;
+}
+
+.carousel-control.prev {
+left: 10px;
+}
+
+.carousel-control.next {
+right: 10px;
 }
