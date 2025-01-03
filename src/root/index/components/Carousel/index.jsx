@@ -1,4 +1,5 @@
 import { createSignal, onCleanup, onMount } from "solid-js";
+import "./carousel.css";
 
 function Carousel() {
   const items = [
