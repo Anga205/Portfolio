@@ -1,4 +1,3 @@
-import './App.css';
 import DesktopView from './index/DesktopView';
 import MobileView from './index/MobileView';
 import { Route, Router } from "@solidjs/router";

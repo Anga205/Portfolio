@@ -1,4 +1,5 @@
 import { createEffect, createSignal } from "solid-js";
+import "./index.css";
 
 const NavbarButton = ({ text, redirect = "#" }) => {
     return (

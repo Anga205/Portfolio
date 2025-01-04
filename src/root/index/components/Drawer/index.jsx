@@ -1,7 +1,5 @@
-import { createSignal } from "solid-js";
-import "./drawer.css"
-import { onCleanup } from "solid-js";
-
+import { createSignal, onCleanup, onMount } from "solid-js";
+import "./drawer.css";
 
 const DrawerButton = ({ title, link = "#", newPage = false }) => {
   return (
@@ -12,7 +10,6 @@ const DrawerButton = ({ title, link = "#", newPage = false }) => {
     </a>
   );
 };
-
 
 const Drawer = () => {
   const [isOpen, setIsOpen] = createSignal(false);
@@ -41,9 +38,20 @@ const Drawer = () => {
     window.addEventListener("touchend", handleTouchEnd);
   };
 
-  window.addEventListener("touchstart", handleTouchStart);
+  const handleClickOutside = (e) => {
+    if (isOpen() && !e.target.closest('.drawer')) {
+      setIsOpen(false);
+    }
+  };
+
+  onMount(() => {
+    window.addEventListener("touchstart", handleTouchStart);
+    document.addEventListener("click", handleClickOutside);
+  });
+
   onCleanup(() => {
     window.removeEventListener("touchstart", handleTouchStart);
+    document.removeEventListener("click", handleClickOutside);
   });
 
   const ButtonList = [
@@ -64,14 +72,14 @@ const Drawer = () => {
       title: "Contact",
       link: "/contact",
     },
-  ]
+  ];
 
   return (
     <>
       <button onClick={toggleDrawer} className="drawer-toggle">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-        <path d="M3 12h12M3 6h18M3 18h6"/>
-      </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M3 12h12M3 6h18M3 18h6"/>
+        </svg>
       </button>
       <div className={`drawer ${isOpen() ? "open" : ""}`}>
         <nav className="drawer-nav space-y-0 h-full items-center justify-between py-40">

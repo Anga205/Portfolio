@@ -8,6 +8,16 @@
     opacity: 0; /* Hide element until animation starts */
 }
 
+.slide-left-mobile {
+    transform: translateX(-25%);
+    opacity: 0; /* Hide element until animation starts */
+}
+
+.slide-right-mobile {
+    transform: translateX(25%);
+    opacity: 0; /* Hide element until animation starts */
+}
+
 .slide-down {
     transform: translateY(-50%);
     opacity: 0; /* Hide element until animation starts */
