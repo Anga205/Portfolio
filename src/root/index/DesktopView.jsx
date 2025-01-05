@@ -56,7 +56,7 @@ const Header = () => {
 const DesktopView = () => {
     createEffect(() => {
         const onLoad = () => {
-            const elementsToAnimate = document.querySelectorAll('.slide-left, .slide-right, .slide-up, .slide-down');
+            const elementsToAnimate = document.querySelectorAll('.slide-left, .slide-right, .slide-up, .slide-down, .fade-in');
             elementsToAnimate.forEach(element => {
                 element.classList.add('animate');
             });
@@ -88,7 +88,7 @@ const DesktopView = () => {
                 </div>
             </nav>
             <div className="flex justify-center items-center h-[100%]">
-                <div className="px-16 max-w-7xl flex justify-center items-center space-x-20">
+                <div className="px-16 max-w-[80%] flex justify-center items-center space-x-20">
                     <div className="text-start space-y-4 slide-left">
                         <Header />
                         <Yapping>I&apos;m a {Math.floor((Date.now() / 1000 - 1117704600) / (60 * 60 * 24 * 365))} year old competitive programming enthusiast, web developer and open-source contributer. I&apos;ve done it all, from making globally scalable secure systems APIs to making the most specialized IoT prototypes.</Yapping>
@@ -99,7 +99,7 @@ const DesktopView = () => {
                         <img
                             src="/image-border.png"
                             alt="Background"
-                            className="w-full object-cover"
+                            className="w-full object-cover fade-in"
                             draggable="false"
                         />
                         

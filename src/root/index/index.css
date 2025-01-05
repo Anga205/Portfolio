@@ -1,31 +1,35 @@
 .slide-left {
     transform: translateX(-50%);
-    opacity: 0; /* Hide element until animation starts */
+    opacity: 0;
 }
 
 .slide-right {
     transform: translateX(50%);
-    opacity: 0; /* Hide element until animation starts */
+    opacity: 0;
 }
 
 .slide-left-mobile {
     transform: translateX(-25%);
-    opacity: 0; /* Hide element until animation starts */
+    opacity: 0;
 }
 
 .slide-right-mobile {
     transform: translateX(25%);
-    opacity: 0; /* Hide element until animation starts */
+    opacity: 0;
 }
 
 .slide-down {
     transform: translateY(-50%);
-    opacity: 0; /* Hide element until animation starts */
+    opacity: 0;
 }
 
 .slide-up {
     transform: translateY(50%);
-    opacity: 0; /* Hide element until animation starts */
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 0;
 }
 
 .animate {
