@@ -82,7 +82,7 @@ const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
 const MobileView = () => {
     const [yapsDone, setYapsDone] = createSignal(0);
     return (
-        <div className="min-h-screen w-screen text-gray-200">
+        <div className="h-screen w-screen text-gray-200">
             <div className="bg-gradient-to-b from-black via-gray-950 to-gray-900 w-screen h-screen fixed py-20 select-none z-[-1]">
                 <img className="w-full opacity-15" src="/nodes.png" draggable="false"/>
             </div>

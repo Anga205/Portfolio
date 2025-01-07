@@ -1,9 +1,16 @@
-.slide-left {
+
+
+.slide-right {
+    transform: translateX(50%);
+    opacity: 0;
+}
+
+.slide-left-image {
     transform: translateX(-50%);
     opacity: 0;
 }
 
-.slide-right {
+.slide-right-image {
     transform: translateX(50%);
     opacity: 0;
 }
