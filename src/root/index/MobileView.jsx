@@ -87,7 +87,7 @@ const MobileView = () => {
                 <img className="w-full opacity-15" src="/nodes.png" draggable="false"/>
             </div>
             <Drawer />
-            <main className="flex flex-col md:flex-row justify-center items-center min-h-screen p-4 space-y-10 md:space-x-10 md:space-y-0">
+            <main className="flex flex-col md:flex-row justify-center items-end p-4 space-y-10">
                 <div className="text-start space-y-4 px-5 w-full">
                     <h1 className="text-3xl font-bold w-full text-start">Hello there! I'm Anga.</h1>
                     <Yapping index={0} yapsDone={yapsDone} setYapsDone={setYapsDone}>I&apos;m a $age year old competitive programming enthusiast, web developer and open-source contributor. I&apos;ve done it all, from making globally scalable secure systems APIs to making the most specialized IoT prototypes.</Yapping>
