@@ -131,7 +131,7 @@ const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
         if (index === yapsDone) {
             const elementsToAnimate = document.querySelectorAll('.slide-left-image, .slide-right-image')
             elementsToAnimate.forEach(element => {
-                element.classList.add('animate')
+                element.classList.add('animate-me')
             })
             setYapsDone(yapsDone + 1)
         }

@@ -13,13 +13,18 @@
     opacity: 0;
 }
 
-@keyframes spin {
+.animate-me {
+    animation: fadeMeIn 1s forwards, slideMeIn 1s forwards;
+}
+
+@keyframes fadeMeIn {
     to {
-        transform: rotate(0deg);
+        opacity: 0.7; /* Reveal element during animation */
     }
 }
 
-.border-spin {
-    transform: rotate(360deg);
-    animation: spin 60s linear infinite;
+@keyframes slideMeIn {
+    to {
+        transform: translateX(0%);
+    }
 }

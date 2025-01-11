@@ -8,7 +8,7 @@ function App() {
       <div className="hidden md:block h-screen">
         <DesktopView />
       </div>
-      <div className="block md:hidden">
+      <div className="w-screen block md:hidden">
         <MobileView />
       </div>
     </>
