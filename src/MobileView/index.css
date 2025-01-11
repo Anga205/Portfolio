@@ -1,0 +1,9 @@
+.slide-left-mobile {
+    transform: translateX(-25%);
+    opacity: 0;
+}
+
+.slide-right-mobile {
+    transform: translateX(25%);
+    opacity: 0;
+}
