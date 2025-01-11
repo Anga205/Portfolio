@@ -139,15 +139,17 @@ const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
 
     return (
         <div className="relative select-none w-[45%]">
-            <img
-                src="/image-border.png"
-                alt="Background"
-                className="w-full object-cover slide-left-image"
-                draggable="false"
-            />
-            <div className="absolute top-1/2 left-1/2 w-full p-12 transform -translate-x-1/2 -translate-y-1/2">
+            <div className='slide-left-image'>
                 <img
-                    src="/me.jpg"
+                    src="/border.png"
+                    alt="Background"
+                    className="w-full object-cover border-spin"
+                    draggable="false"
+                />
+            </div>
+            <div className="absolute top-1/2 left-1/2 w-10/12 p-14 transform -translate-x-1/2 -translate-y-1/2">
+                <img
+                    src="/me.png"
                     alt="Foreground"
                     className="object-cover slide-right-image"
                     draggable="false"

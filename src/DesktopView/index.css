@@ -12,3 +12,14 @@
     transform: translateY(-50%);
     opacity: 0;
 }
+
+@keyframes spin {
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.border-spin {
+    transform: rotate(360deg);
+    animation: spin 60s linear infinite;
+}
