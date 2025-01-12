@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./index.css"
-import Drawer from "./components/drawer";
+import Drawer from "../components/drawer";
+import Carousel from "../components/carousel";
 
 const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
     useEffect(() => {
@@ -17,7 +18,7 @@ const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
         }
     },[yapsDone])
     return (
-        <div className="relative w-10/12 select-none hidden" id="image-of-me">
+        <div className="relative w-9/12 select-none hidden" id="image-of-me">
             <div className='slide-left-mobile'>
                 <img
                     src="/border.png"
@@ -124,23 +125,42 @@ const Header = ({ yapsDone, setYapsDone, index }) => {
     )
 }
 
-const MobileView = () => {
+const Home = () => {
     const [yapsDone, setYapsDone] = useState(0);
     return (
-        <div className="h-screen w-full text-gray-200">
+        <div className="flex flex-col md:flex-row justify-center items-center p-4 space-y-10 h-fit">
+            <div className="text-start space-y-4 px-5 w-full">
+                <Header index={4} yapsDone={yapsDone} setYapsDone={setYapsDone}/>
+                <Yapping index={0} yapsDone={yapsDone} setYapsDone={setYapsDone}>I&apos;m a $age year old competitive programming enthusiast, web developer and open-source contributor. I&apos;ve done it all, from making globally scalable secure systems APIs to making the most specialized IoT prototypes.</Yapping>
+                <Yapping index={1} yapsDone={yapsDone} setYapsDone={setYapsDone}>I've given TED talks, worked with some of the most enthusiastic tech startups, headed some of the biggest clubs in University, and competed in 40+ hackathons and coding contests.</Yapping>
+                <Yapping index={2} yapsDone={yapsDone} setYapsDone={setYapsDone}>I am also lactose intolerant.</Yapping>
+            </div>
+            <ImageOfMe index={3} yapsDone={yapsDone} setYapsDone={setYapsDone}/>
+        </div>
+    )
+}
+
+const Projects = () => {
+    return (
+        <div className="flex justify-center items-center w-full h-screen">
+            <Carousel />
+        </div>
+    )
+}
+
+const MobileView = () => {
+    return (
+        <div className="w-full text-gray-200">
             <div className="bg-gradient-to-b from-black via-gray-950 to-gray-900 w-screen h-screen fixed py-20 select-none z-[-1]">
                 <img className="w-full opacity-15" src="/nodes.png" draggable="false"/>
             </div>
             <Drawer />
-            <main className="flex flex-col md:flex-row justify-center items-center p-4 space-y-10 h-fit">
-                <div className="text-start space-y-4 px-5 w-full">
-                    <Header index={4} yapsDone={yapsDone} setYapsDone={setYapsDone}/>
-                    <Yapping index={0} yapsDone={yapsDone} setYapsDone={setYapsDone}>I&apos;m a $age year old competitive programming enthusiast, web developer and open-source contributor. I&apos;ve done it all, from making globally scalable secure systems APIs to making the most specialized IoT prototypes.</Yapping>
-                    <Yapping index={1} yapsDone={yapsDone} setYapsDone={setYapsDone}>I've given TED talks, worked with some of the most enthusiastic tech startups, headed some of the biggest clubs in University, and competed in 40+ hackathons and coding contests.</Yapping>
-                    <Yapping index={2} yapsDone={yapsDone} setYapsDone={setYapsDone}>I am also lactose intolerant.</Yapping>
-                </div>
-                <ImageOfMe index={3} yapsDone={yapsDone} setYapsDone={setYapsDone}/>
-            </main>
+            <div className="w-full h-screen">
+                <Home/>
+            </div>
+            <div className="w-full h-screen">
+                <Projects/>
+            </div>
         </div>
     )
 }
