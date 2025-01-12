@@ -1,0 +1,30 @@
+.slide-left-image {
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+.slide-right-image {
+    transform: translateX(50%);
+    opacity: 0;
+}
+
+.slide-down {
+    transform: translateY(-50%);
+    opacity: 0;
+}
+
+.animate-me {
+    animation: fadeMeIn 1s forwards, slideMeIn 1s forwards;
+}
+
+@keyframes fadeMeIn {
+    to {
+        opacity: 0.7; /* Reveal element during animation */
+    }
+}
+
+@keyframes slideMeIn {
+    to {
+        transform: translateX(0%);
+    }
+}
