@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./index.css"
 import Drawer from "../components/drawer";
-import Carousel from "../components/carousel";
+import Carousel from "../components/cubeCarousel";
 
 const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
     useEffect(() => {
@@ -12,13 +12,9 @@ const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
             });
             setYapsDone(yapsDone + 1)
         }
-        const imageOfMe = document.getElementById("image-of-me")
-        if (index===yapsDone){
-            imageOfMe.classList.remove("hidden")
-        }
     },[yapsDone])
     return (
-        <div className="relative w-9/12 select-none hidden" id="image-of-me">
+        <div className="relative w-9/12 select-none" id="image-of-me">
             <div className='slide-left-mobile'>
                 <img
                     src="/border.png"
@@ -150,15 +146,15 @@ const Projects = () => {
 
 const MobileView = () => {
     return (
-        <div className="w-full text-gray-200">
+        <div className="w-full h-screen text-gray-200 snap-y snap-mandatory overflow-y-scroll scroll-smooth">
             <div className="bg-gradient-to-b from-black via-gray-950 to-gray-900 w-screen h-screen fixed py-20 select-none z-[-1]">
                 <img className="w-full opacity-15" src="/nodes.png" draggable="false"/>
             </div>
             <Drawer />
-            <div className="w-full h-screen">
+            <div className="flex w-full h-screen justify-start items-center snap-center" id="home">
                 <Home/>
             </div>
-            <div className="w-full h-screen">
+            <div className="flex w-full h-screen snap-center" id="projects">
                 <Projects/>
             </div>
         </div>

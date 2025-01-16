@@ -8,12 +8,17 @@ import './styles.css';
 
 import { EffectCube, Pagination } from 'swiper/modules';
 
+
+const Update = (e) => {
+    console.log(e)
+}
+
 export default function Carousel() {
 const images = [
-    "/angadrive.jpg",
-    "https://swiperjs.com/demos/images/nature-2.jpg",
-    "https://swiperjs.com/demos/images/nature-3.jpg",
-    "https://swiperjs.com/demos/images/nature-4.jpg"
+    "https://i.anga.pro/i/pcddh52z4ian.png",
+    "https://i.anga.pro/i/bnejfwcjkcaj.png",
+    "https://i.anga.pro/i/9ny2s0rwskvo.png",
+    "https://i.anga.pro/i/zayvhl0iqtl3.png"
 ]
 
 return (
@@ -27,13 +32,19 @@ return (
                 shadowOffset: 20,
                 shadowScale: 0.94,
             }}
-            pagination={true}
+            pagination={{ 
+                clickable: true,
+            }}
             modules={[EffectCube, Pagination]}
+            onPaginationUpdate={Update}
             className="mySwiper"
         >
             {images.map((src, index) => (
                 <SwiperSlide key={index}>
-                    <img src={src} style={{ border: '2px solid white' }} />
+                    <div className='w-full h-full'>
+                        <h1>{index}</h1>
+                        <img src={src} style={{ border: '2px solid white' }}/>
+                    </div>
                 </SwiperSlide>
             ))}
         </Swiper>
