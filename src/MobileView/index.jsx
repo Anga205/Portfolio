@@ -137,9 +137,37 @@ const Home = () => {
 }
 
 const Projects = () => {
+
+    const projects1 = [
+        {
+            name: "AngaDrive",
+            image: "https://i.anga.pro/i/bnejfwcjkcaj.png",
+            description: "A free and open source file hosting service made using Python",
+            background: "brown"
+        },
+        {
+            name: "QuickChat",
+            image: "https://i.anga.pro/i/pcddh52z4ian.png",
+            description: "A Social Media application made using the MERN stack",
+            background: "cyan"
+        },
+        {
+            name: "Go Parser",
+            image: "https://i.anga.pro/i/9ny2s0rwskvo.png",
+            description: "A performant command line application used to parse and verify a string to the go programming language",
+            background: "red"
+        },
+        {
+            name: "Pycord",
+            image: "https://i.anga.pro/i/zayvhl0iqtl3.png",
+            description: "A discord-like gui made using tkinter",
+            background: "lightgreen"
+        }
+    ]
+
     return (
         <div className="flex justify-center items-center w-full h-screen">
-            <Carousel />
+            <Carousel projects={projects1} />
         </div>
     )
 }

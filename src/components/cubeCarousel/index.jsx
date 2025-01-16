@@ -13,13 +13,7 @@ const Update = (e) => {
     console.log(e)
 }
 
-export default function Carousel() {
-const images = [
-    "https://i.anga.pro/i/pcddh52z4ian.png",
-    "https://i.anga.pro/i/bnejfwcjkcaj.png",
-    "https://i.anga.pro/i/9ny2s0rwskvo.png",
-    "https://i.anga.pro/i/zayvhl0iqtl3.png"
-]
+const Carousel = ({ projects }) => {
 
 return (
     <>
@@ -39,11 +33,15 @@ return (
             onPaginationUpdate={Update}
             className="mySwiper"
         >
-            {images.map((src, index) => (
+            {projects.map((project, index) => (
                 <SwiperSlide key={index}>
-                    <div className='w-full h-full'>
-                        <h1>{index}</h1>
-                        <img src={src} style={{ border: '2px solid white' }}/>
+                    <div style={{ 
+                        backgroundColor: project.background, 
+                        border: '4px solid white',
+                    }} className='w-full h-full p-4'>
+                        <h1>{project.name}</h1>
+                        <img src={project.image}/>
+                        <h3>{project.description}</h3>
                     </div>
                 </SwiperSlide>
             ))}
@@ -51,3 +49,5 @@ return (
     </>
 );
 }
+
+export default Carousel
