@@ -20,8 +20,8 @@ const NavbarButton = ({ text, redirect = "#" }) => {
 const DesktopNavbar = () => {
     return (
         <>
-            <nav className="fixed bg-transparent p-3 w-full slide-down bg-black bg-opacity-25 select-none animate z-10">
-                <div className="container mx-auto flex justify-between items-center">
+            <nav className="fixed bg-transparent pt-3 w-full slide-down bg-black bg-opacity-25 select-none animate z-10">
+                <div className="px-44 mx-auto flex justify-between items-center">
                     <div className="flex w-full justify-between items-center h-16">
                         <img
                             src="/anga.svg"
@@ -195,7 +195,7 @@ const Contacts = () => {
 const DesktopView = () => {
     
     return (
-        <div className="w-screen h-screen text-gray-200 snap-y snap-mandatory overflow-y-scroll scroll-smooth">
+        <div className="w-screen h-screen text-gray-200 snap-y snap-mandatory scroll-smooth scrollbar-thin scrollbar-track-black scrollbar-thumb-slate-800 overflow-y-scroll">
             <div className="bg-gradient-to-b from-black via-gray-950 to-gray-900 w-full h-full absolute p-10 select-none z-[-1]">
                 <img className="h-full opacity-10" src="/nodes.png" draggable="false" />
             </div>
