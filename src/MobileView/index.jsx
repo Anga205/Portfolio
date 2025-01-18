@@ -143,30 +143,36 @@ const Projects = () => {
             name: "AngaDrive",
             image: "https://i.anga.pro/i/bnejfwcjkcaj.png",
             description: "A free and open source file hosting service made using Python",
-            background: "brown"
+            gradient: "linear-gradient(135deg, #00002a, black, #00002a)",
+            github: "https://github.com/Anga205/AngaDriveV2",
+            link: "https://drive.anga.pro"
         },
         {
             name: "QuickChat",
             image: "https://i.anga.pro/i/pcddh52z4ian.png",
             description: "A Social Media application made using the MERN stack",
-            background: "cyan"
+            gradient: "linear-gradient(135deg, #002a00, black, #002a00)",
+            github: "https://github.com/Anga205/QuickChat",
         },
         {
             name: "Go Parser",
             image: "https://i.anga.pro/i/9ny2s0rwskvo.png",
             description: "A performant command line application used to parse and verify a string to the go programming language",
-            background: "red"
+            gradient: "linear-gradient(135deg, #2a0000, black, #2a0000)",
+            github: "https://github.com/Anga205/go-parser"
         },
         {
             name: "Pycord",
             image: "https://i.anga.pro/i/zayvhl0iqtl3.png",
             description: "A discord-like gui made using tkinter",
-            background: "lightgreen"
+            gradient: "linear-gradient(135deg, #100010, black, #100010)",
+            github: "https://github.com/Anga205/discord-in-python"
         }
     ]
 
     return (
-        <div className="flex justify-center items-center w-full h-screen">
+        <div className="flex flex-col justify-center items-center w-full h-screen">
+            <h1 className="text-4xl font-black pb-4">&lt;MyProjects/&gt;</h1>
             <Carousel projects={projects1} />
         </div>
     )
