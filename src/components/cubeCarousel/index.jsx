@@ -8,11 +8,6 @@ import './styles.css';
 
 import { EffectCube, Pagination } from 'swiper/modules';
 
-
-const Update = (e) => {
-    console.log(e.activeIndex)
-}
-
 const Buttons = ({ project }) => (
     <div className="flex justify-between space-x-3 w-full select-none pb-4">
         <a href={project.github} target="_blank" className={`text-blue-500 ${project.link ? 'w-1/2' : 'w-full'}`}>
@@ -53,7 +48,6 @@ return (
                 clickable: true, 
             }}
             modules={[EffectCube, Pagination]}
-            onPaginationUpdate={Update}
             className="mySwiper"
         >
             {projects.map((project, index) => (
@@ -64,7 +58,9 @@ return (
                                 {project.name}
                             </h1>
                             <hr className='m-4'/>
-                            <img src={project.image} className='border-gray-700 border-2 rounded-lg'/>
+                            <div className="aspect-square w-full">
+                                <img src={project.image} className='border-gray-700 border-2 rounded-lg'/>
+                            </div>
                             <h3 className='pt-2'>{project.description}</h3>
                         </div>
                         <Buttons project={project} />
