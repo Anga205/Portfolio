@@ -6,7 +6,7 @@ import 'swiper/css/pagination';
 
 import './styles.css';
 
-import { EffectCube, Pagination } from 'swiper/modules';
+import { Autoplay, EffectCube, Pagination } from 'swiper/modules';
 
 const Buttons = ({ project }) => (
     <div className="flex justify-between space-x-3 w-full select-none pb-4">
@@ -44,11 +44,15 @@ return (
                 shadowOffset: 20,
                 shadowScale: 0.94,
             }}
+            loop={true}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: true,
+            }}
             pagination={{ 
                 clickable: true, 
             }}
-            modules={[EffectCube, Pagination]}
-            className="mySwiper"
+            modules={[Autoplay, EffectCube, Pagination]}
         >
             {projects.map((project, index) => (
                 <SwiperSlide key={index}>
