@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./index.css"
 import Slider from '../components/slideCarousel'
+import Tilt from 'react-parallax-tilt'
 
 const NavbarButton = ({ text, redirect = "#" }) => {
     const handleClick = () => {
@@ -148,7 +149,7 @@ const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
                     draggable="false"
                 />
             </div>
-            <div className="absolute top-1/2 left-1/2 w-10/12 p-14 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="absolute top-1/2 left-1/2 w-10/12 p-[6vh] transform -translate-x-1/2 -translate-y-1/2">
                 <img
                     src="/me.png"
                     alt="Foreground"
@@ -164,13 +165,13 @@ const Home = () => {
     const [yapsDone, setYapsDone] = useState(0)
     return (
         <div className="flex justify-center items-center h-screen snap-start" id="home">
-            <div className="px-16 w-[80%] flex justify-center items-center space-x-20">
-                <div className="text-start translate-x-0 space-y-4 w-[55%]">
+            <div className="px-[6vh] w-[80%] flex justify-center items-center space-x-20">
+                <Tilt className="text-start translate-x-0 space-y-4 w-[55%] bg-gradient-to-tr from-blue-900 via-black to-purple-950 p-[2.5vh] border-[0.3vh] rounded-[1vh] border-gray-500">
                     <Header index={4} yapsDone={yapsDone} setYapsDone={setYapsDone}/>
                     <Yapping index={0} yapsDone={yapsDone} setYapsDone={setYapsDone}>I&apos;m a $age year old competitive programming enthusiast, web developer and open-source contributer. I&apos;ve done it all, from making globally scalable secure systems APIs to making the most specialized IoT prototypes.</Yapping>
                     <Yapping index={1} yapsDone={yapsDone} setYapsDone={setYapsDone}>I&apos;ve given TED talks, worked with some of the most enthusiastic tech startups, headed some of the biggest clubs in University, and competed in 40+ hackathons and coding contests.</Yapping>
                     <Yapping index={2} yapsDone={yapsDone} setYapsDone={setYapsDone}>I am also lactose intolerant.</Yapping>
-                </div>
+                </Tilt>
                 <ImageOfMe index={3} yapsDone={yapsDone} setYapsDone={setYapsDone}/>
             </div>
         </div>
@@ -179,8 +180,8 @@ const Home = () => {
 
 const Projects = ({ projects }) => {
     return (
-        <div className="flex flex-col justify-center items-center w-full h-screen translate-x-0 snap-center p-20" id="projects">
-            <h1 className="text-5xl font-black pb-4">&lt;MyProjects/&gt;</h1>
+        <div className="flex flex-col justify-center items-center w-full h-screen translate-x-0 snap-center p-[10vh]" id="projects">
+            <h1 className="text-[5vh] font-black pb-[1vh]">&lt;MyProjects/&gt;</h1>
             <Slider projects={ projects }/>
         </div>
     )

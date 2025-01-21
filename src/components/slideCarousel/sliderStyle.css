@@ -1,15 +1,15 @@
 .slider {
   width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
 }
   
 .slider-slide {
   background-position: center;
   background-size: cover;
-  width: 110vh;
+  width: 130vh;
   height: 55vh;
-  border-width: 2px;
+  border-width: 0.3vh;
   border-color: white;
 }
 
