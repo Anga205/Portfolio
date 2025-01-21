@@ -1,0 +1,20 @@
+.slider {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+  
+.slider-slide {
+  background-position: center;
+  background-size: cover;
+  width: 110vh;
+  height: 55vh;
+  border-width: 2px;
+  border-color: white;
+}
+
+.slider-slide img {
+  display: block;
+  height: 100%;
+}
+  

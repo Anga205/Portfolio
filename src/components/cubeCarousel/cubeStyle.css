@@ -1,15 +1,15 @@
-.swiper {
+.cube {
   width: 75%;
   height: 70%;
   max-width: 340px;
 }
 
-.swiper-slide {
+.cube-slide {
   background-position: center;
   background-size: cover;
 }
 
-.swiper-slide img {
+.cube-slide img {
   display: block;
   width: 100%;
 }

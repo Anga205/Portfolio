@@ -1,15 +1,15 @@
 import DesktopView from "./DesktopView"
 import MobileView from "./MobileView"
 
-function App() {
+function App({ projects }) {
 
   return (
     <>
       <div className="hidden md:block h-screen">
-        <DesktopView />
+        <DesktopView projects={projects} />
       </div>
       <div className="w-screen block md:hidden">
-        <MobileView />
+        <MobileView projects={projects} />
       </div>
     </>
   )

@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 
-import './styles.css';
+import './cubeStyle.css';
 
 import { Autoplay, EffectCube, Pagination } from 'swiper/modules';
 
@@ -53,10 +53,11 @@ return (
                 clickable: true, 
             }}
             modules={[Autoplay, EffectCube, Pagination]}
+            className='cube'
         >
             {projects.map((project, index) => (
-                <SwiperSlide key={index}>
-                    <div style={{ backgroundImage: project.gradient }} className='select-none flex flex-col justify-between w-full h-full p-4 rounded-md border-spacing-4 border-gray-700 border-2'>
+                <SwiperSlide key={index} className='cube-slide'>
+                    <div style={{ backgroundImage: project.gradient }} className='select-none flex flex-col justify-between w-full h-full p-4 rounded-md border-spacing-4 border-gray-700 border-2 overflow-hidden'>
                         <div>
                             <h1 className="w-full text-center text-4xl font-bold">
                                 {project.name}

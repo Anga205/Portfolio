@@ -136,7 +136,7 @@ const Home = () => {
     )
 }
 
-const Projects = () => {
+const Projects = ({ projects }) => {
 
     const projects1 = [
         {
@@ -173,13 +173,13 @@ const Projects = () => {
     return (
         <div className="flex flex-col justify-center items-center w-full h-screen">
             <h1 className="text-4xl font-black pb-4">&lt;MyProjects/&gt;</h1>
-            <Carousel projects={projects1} />
+            <Carousel projects={projects} />
             <span>&lt;&lt;&lt; Swipe &gt;&gt;&gt;</span>
         </div>
     )
 }
 
-const MobileView = () => {
+const MobileView = ({ projects }) => {
     return (
         <div className="w-full h-screen text-gray-200 snap-y snap-mandatory scrollbar-thin scrollbar-track-black scrollbar-thumb-blue-950 overflow-y-scroll scroll-smooth">
             <div className="bg-gradient-to-b from-black via-gray-950 to-gray-900 w-screen h-screen fixed py-20 select-none z-[-1]">
@@ -190,7 +190,7 @@ const MobileView = () => {
                 <Home/>
             </div>
             <div className="flex w-full h-screen snap-center" id="projects">
-                <Projects/>
+                <Projects projects={projects}/>
             </div>
         </div>
     )

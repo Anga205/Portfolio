@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import "./index.css"
+import Slider from '../components/slideCarousel'
 
 const NavbarButton = ({ text, redirect = "#" }) => {
     const handleClick = () => {
@@ -11,7 +12,7 @@ const NavbarButton = ({ text, redirect = "#" }) => {
     }
 
     return (
-        <button onClick={handleClick} className="hover:bg-gray-800 px-3 py-2 rounded-md border border-gray-400 bg-gray-950 w-24 h-10 items-center justify-center flex">
+        <button onClick={handleClick} className="hover:bg-gray-800 rounded-[0.7vh] border text-[1.7vh] border-gray-400 bg-gray-950 w-[10vh] h-[4.5vh] items-center justify-center flex">
             {text}
         </button>
     )
@@ -20,14 +21,14 @@ const NavbarButton = ({ text, redirect = "#" }) => {
 const DesktopNavbar = () => {
     return (
         <>
-            <nav className="fixed bg-transparent pt-3 w-full slide-down bg-black bg-opacity-25 select-none animate z-10">
-                <div className="px-44 mx-auto flex justify-between items-center">
-                    <div className="flex w-full justify-between items-center h-16">
+            <nav className="fixed bg-transparent pt-[1vh] w-full slide-down bg-black bg-opacity-25 select-none animate z-10">
+                <div className="px-[20vh] mx-auto flex justify-between items-center">
+                    <div className="flex w-full justify-between items-center h-[7vh]">
                         <img
                             src="/anga.svg"
                             className="h-full"
                         />
-                        <div className="flex space-x-10 text-gray-200" >
+                        <div className="flex space-x-[4.5vh] text-gray-200" >
                             <NavbarButton text="Home" redirect="/#home" />
                             <NavbarButton text="Projects" redirect="/#projects" />
                             <NavbarButton text="Resume" redirect="resume.pdf"/>
@@ -176,10 +177,11 @@ const Home = () => {
     )
 }
 
-const Projects = () => {
+const Projects = ({ projects }) => {
     return (
-        <div className="flex justify-center items-center w-full h-screen translate-x-0 snap-center" id="projects">
-            <h1>My Projects</h1>
+        <div className="flex flex-col justify-center items-center w-full h-screen translate-x-0 snap-center p-20" id="projects">
+            <h1 className="text-5xl font-black pb-4">&lt;MyProjects/&gt;</h1>
+            <Slider projects={ projects }/>
         </div>
     )
 }
@@ -192,7 +194,7 @@ const Contacts = () => {
     )
 }
 
-const DesktopView = () => {
+const DesktopView = ({ projects }) => {
     
     return (
         <div className="w-screen h-screen text-gray-200 snap-y snap-mandatory scroll-smooth scrollbar-thin scrollbar-track-black scrollbar-thumb-slate-800 overflow-y-scroll">
@@ -201,7 +203,7 @@ const DesktopView = () => {
             </div>
             <DesktopNavbar />
             <Home />
-            <Projects />
+            <Projects projects={projects}/>
             <Contacts/>
         </div>
     )
