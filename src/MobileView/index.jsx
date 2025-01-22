@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./index.css"
 import Drawer from "../components/drawer";
+import Tilt from "react-parallax-tilt";
 import Carousel from "../components/cubeCarousel";
 
 const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
@@ -127,9 +128,14 @@ const Home = () => {
         <div className="flex flex-col md:flex-row justify-center items-center p-4 space-y-10 h-fit">
             <div className="text-start space-y-4 px-5 w-full">
                 <Header index={4} yapsDone={yapsDone} setYapsDone={setYapsDone}/>
-                <Yapping index={0} yapsDone={yapsDone} setYapsDone={setYapsDone}>I&apos;m a $age year old competitive programming enthusiast, web developer and open-source contributor. I&apos;ve done it all, from making globally scalable secure systems APIs to making the most specialized IoT prototypes.</Yapping>
-                <Yapping index={1} yapsDone={yapsDone} setYapsDone={setYapsDone}>I've given TED talks, worked with some of the most enthusiastic tech startups, headed some of the biggest clubs in University, and competed in 40+ hackathons and coding contests.</Yapping>
-                <Yapping index={2} yapsDone={yapsDone} setYapsDone={setYapsDone}>I am also lactose intolerant.</Yapping>
+                <Tilt 
+                    className="space-y-2 bg-gradient-to-tr p-2 rounded-md border-2 border-gray-600 from-blue-800 via-black to-purple-950"
+                    gyroscope={true}
+                >
+                    <Yapping index={0} yapsDone={yapsDone} setYapsDone={setYapsDone}>I&apos;m a $age year old competitive programming enthusiast, web developer and open-source contributor. I&apos;ve done it all, from making globally scalable secure systems APIs to making the most specialized IoT prototypes.</Yapping>
+                    <Yapping index={1} yapsDone={yapsDone} setYapsDone={setYapsDone}>I've given TED talks, worked with some of the most enthusiastic tech startups, headed some of the biggest clubs in University, and competed in 40+ hackathons and coding contests.</Yapping>
+                    <Yapping index={2} yapsDone={yapsDone} setYapsDone={setYapsDone}>I am also lactose intolerant.</Yapping>
+                </Tilt>
             </div>
             <ImageOfMe index={3} yapsDone={yapsDone} setYapsDone={setYapsDone}/>
         </div>

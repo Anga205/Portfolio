@@ -205,7 +205,6 @@ const DesktopView = ({ projects }) => {
             <DesktopNavbar />
             <Home />
             <Projects projects={projects}/>
-            <Contacts/>
         </div>
     )
 }
