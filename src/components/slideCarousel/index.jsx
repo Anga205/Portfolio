@@ -15,7 +15,7 @@ const Buttons = ({ project }) => (
               <div className='w-[3vh] h-[3vh]'>
                   <img src="github.png" alt="Github" className="w-full h-full aspect-square"/>
               </div>
-              <span className='pl-[1vh] text-[1.7vh]'>{project.link ? 'Github' : 'View on Github'}</span>
+              <span className='pl-[1vh] text-[1.7vh] font-mono'>{project.link ? 'Github' : 'View on Github'}</span>
           </button>
       </a>
       {project.link && (
@@ -24,7 +24,7 @@ const Buttons = ({ project }) => (
                   <div className='w-[3vh] h-[3vh] aspect-square'>
                       <img src="web.png" alt="Link" className="w-full h-full aspect-square"/>
                   </div>
-                  <span className='pl-[1vh] text-[1.7vh]'>Link</span>
+                  <span className='font-mono pl-[1vh] text-[1.7vh]'>Link</span>
               </button>
           </a>
       )}
@@ -121,12 +121,12 @@ const Slider = ({ projects }) => {
         style={{ height: '100vh' }}
       >
         {projects.map((project, index) => (
-          <SwiperSlide style={{ backgroundImage: project.gradient, height: '100%' }} key={index} className='slider-slide rounded-[2.5vh] p-[1.5vh]'>
+          <SwiperSlide style={{ backgroundImage: project.gradient, height: '100%' }} key={index} className='slider-slide rounded-[0.7vh] p-[0.5vh]'>
             <div className='flex w-full h-full'>
               <div className='flex flex-col w-1/2 p-[1.5vh] h-full justify-between'>
                 <div/><div/><div/>
                 <div>
-                  <p className='text-[5vh] font-semibold w-full text-center font-mono'>{project.name}</p>
+                  <p className='text-[5vh] font-semibold w-full text-center font-sans'>{project.name}</p>
                   <hr className='border-gray-600'/>
                 </div>
                 <p className='text-[2vh] font-mono'>{project.description}</p>
@@ -145,7 +145,7 @@ const Slider = ({ projects }) => {
               </div>
               <div className='w-1/2 h-full flex justify-end items-center'>
                 <div className='h-full aspect-square'>
-                  <img src={project.image} alt={project.name} className='rounded-[1vh] w-full h-full'/>
+                  <img src={project.image} alt={project.name} className='rounded-[0.2vh] w-full h-full'/>
                 </div>
               </div>
             </div>

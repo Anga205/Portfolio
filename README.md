@@ -1,8 +1,25 @@
-# React + Vite
+# Anga's Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Commands to run this:
 
-Currently, two official plugins are available:
+First, clone the repository:
+```bash
+git clone git@github.com:Anga205/Portfolio.git
+cd Portfolio
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+Then, install the dependencies:
+```bash
+bun install
+```
+
+then you can run the development server:
+```bash
+bun run dev
+```
+
+## Technologies used:
+
+<img src="https://skillicons.dev/icons?i=bun,vite,react,tailwind" height="40px"/>
