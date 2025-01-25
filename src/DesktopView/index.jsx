@@ -189,8 +189,22 @@ const Projects = ({ projects }) => {
 
 const Contacts = () => {
     return (
-        <div className="flex justify-center items-center w-full h-screen translate-x-0 snap-center" id="contacts">
-            <h1>My Contacts</h1>
+        <div className="flex flex-col justify-center items-center w-full h-screen translate-x-0 snap-center p-[10vh]" id="contacts">
+            <h1 className="text-[5vh] font-black pb-[2vh] text-gray-200">&lt;ContactMe/&gt;</h1>
+            <div className="flex flex-col space-y-4 text-gray-200">
+                <div className="flex items-center justify-center space-x-4">
+                    <img src="/email-icon.png" alt="Email" className="h-[4vh]" />
+                    <a href="sayhi@angadbhalla.com" className="text-[2.5vh] hover:underline">sayhi@angadbhalla.com</a>
+                </div>
+                <div className="flex items-center space-x-4">
+                    <img src="/linkedin-icon.png" alt="LinkedIn" className="h-[4vh]" />
+                    <a href="https://www.linkedin.com/in/anga" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">linkedin.com/in/anga</a>
+                </div>
+                <div className="flex items-center space-x-4">
+                    <img src="/github-icon.png" alt="GitHub" className="h-[4vh]" />
+                    <a href="https://github.com/Anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">github.com/anga</a>
+                </div>
+            </div>
         </div>
     )
 }
@@ -205,6 +219,7 @@ const DesktopView = ({ projects }) => {
             <DesktopNavbar />
             <Home />
             <Projects projects={projects}/>
+            <Contacts />
         </div>
     )
 }
