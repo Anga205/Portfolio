@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import "./index.css"
 import Slider from '../components/slideCarousel'
 import Tilt from 'react-parallax-tilt'
+import GitHubButton from 'react-github-btn'
 
 const NavbarButton = ({ text, redirect = "#" }) => {
     const handleClick = () => {
@@ -203,8 +204,8 @@ const DesktopView = ({ projects }) => {
                 <img className="h-full opacity-10" src="/nodes.png" draggable="false" />
             </div>
             <div className="flex items-end justify-end w-full h-full absolute pb-1 pr-3 z-10 pointer-events-none">
-                <a href="https://github.com/Anga205/Portfolio" target='_blank' className="pointer-events-auto">
-                    <img src="https://img.shields.io/badge/Source%20Code-24292E?style=flat-square&logo=github&logoColor=white" />
+                <a className='pointer-events-auto'>
+                    <GitHubButton href="https://github.com/Anga205/Portfolio" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Star Anga205/Portfolio on GitHub">Source Code</GitHubButton>
                 </a>
             </div>
             <DesktopNavbar />
