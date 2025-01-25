@@ -202,7 +202,7 @@ const Contacts = () => {
                     <a href="https://www.linkedin.com/in/anga" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">linkedin.com/in/anga</a>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <img src="/github.png" alt="GitHub" className="w-[4vh] bg-white rounded-2xl" />
+                    <img src="/github.png" alt="GitHub" className="w-[4vh] bg-white rounded-full" />
                     <a href="https://github.com/Anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">github.com/Anga205</a>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -215,7 +215,7 @@ const Contacts = () => {
                 </div>
                 <div className="flex items-center space-x-4">
                     <img src="/reddit.svg" alt="Reddit" className="w-[4vh]" />
-                    <a href="https://www.reddit.com/user/anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">reddit.com/user/anga205</a>
+                    <a href="https://www.reddit.com/u/anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">reddit.com/user/anga205</a>
                 </div>
                 <div className="flex items-center space-x-4">
                     <img src="/leetcode.svg" alt="LeetCode" className="w-[4vh]" />
