@@ -13,7 +13,7 @@ const Buttons = ({ project }) => (
       <a href={project.github} target="_blank" className={`text-blue-500 ${project.link ? 'w-1/2' : 'w-full'}`}>
           <button className="flex items-center justify-center space-x-[1vh] bg-white p-[1vh] rounded-[0.5vh] w-full">
               <div className='w-[3vh] h-[3vh]'>
-                  <img src="github.png" alt="Github" className="w-full h-full aspect-square"/>
+                  <img src="github.png" alt="Github" className="w-full h-full aspect-square rounded-full"/>
               </div>
               <span className='pl-[1vh] text-[1.7vh] font-mono'>{project.link ? 'Github' : 'View on Github'}</span>
           </button>
@@ -102,7 +102,7 @@ const Slider = ({ projects }) => {
         slidesPerView={'auto'}
         loop={true}
         autoplay={{
-          delay: 2000,
+          delay: 12000,
           disableOnInteraction: true,
         }}
         coverflowEffect={{

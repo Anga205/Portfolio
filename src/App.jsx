@@ -1,18 +1,28 @@
-import DesktopView from "./DesktopView"
+import {DesktopView} from "./DesktopView"
 import MobileView from "./MobileView"
+import { useState, useEffect } from 'react'
 
 function App({ projects }) {
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <>
-      <div className="hidden md:block h-screen">
+      {isDesktop ? (
         <DesktopView projects={projects} />
-      </div>
-      <div className="w-screen block md:hidden">
+      ) : (
         <MobileView projects={projects} />
-      </div>
+      )}
     </>
-  )
+  );
 }
 
 export default App
