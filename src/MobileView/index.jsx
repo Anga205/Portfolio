@@ -3,6 +3,7 @@ import "./index.css"
 import Drawer from "../components/drawer";
 import Tilt from "react-parallax-tilt";
 import Carousel from "../components/cubeCarousel";
+import GitHubButton from 'react-github-btn'
 
 const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
     useEffect(() => {
@@ -158,6 +159,11 @@ const MobileView = ({ projects }) => {
         <div className="w-full h-screen text-gray-200 snap-y snap-mandatory scrollbar-thin scrollbar-track-black scrollbar-thumb-blue-950 overflow-y-scroll scroll-smooth">
             <div className="bg-gradient-to-b from-black via-gray-950 to-gray-900 w-screen h-screen fixed py-20 select-none z-[-1]">
                 <img className="w-full opacity-15" src="/nodes.png" draggable="false"/>
+            </div>
+            <div className="flex items-end justify-end w-full h-full absolute pr-2 pb-1 z-10 pointer-events-none">
+                <a className='pointer-events-auto'>
+                    <GitHubButton href="https://github.com/Anga205/Portfolio" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Star Anga205/Portfolio on GitHub">Source Code</GitHubButton>
+                </a>
             </div>
             <Drawer />
             <div className="flex w-full h-screen justify-start items-center snap-center" id="home">
