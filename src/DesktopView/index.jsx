@@ -202,6 +202,11 @@ const DesktopView = ({ projects }) => {
             <div className="bg-gradient-to-b from-black via-gray-950 to-gray-900 w-full h-full absolute p-10 select-none z-[-1]">
                 <img className="h-full opacity-10" src="/nodes.png" draggable="false" />
             </div>
+            <div className="flex items-end justify-end w-full h-full absolute pb-1 pr-3 z-10 pointer-events-none">
+                <a href="https://github.com/Anga205/Portfolio" target='_blank' className="pointer-events-auto">
+                    <img src="https://img.shields.io/badge/Source%20Code-24292E?style=flat-square&logo=github&logoColor=white" />
+                </a>
+            </div>
             <DesktopNavbar />
             <Home />
             <Projects projects={projects}/>

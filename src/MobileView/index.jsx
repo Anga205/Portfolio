@@ -159,6 +159,11 @@ const MobileView = ({ projects }) => {
             <div className="bg-gradient-to-b from-black via-gray-950 to-gray-900 w-screen h-screen fixed py-20 select-none z-[-1]">
                 <img className="w-full opacity-15" src="/nodes.png" draggable="false"/>
             </div>
+            <div className="flex items-end justify-end w-full h-full absolute p-2 z-10 pointer-events-none">
+                <a href="https://github.com/Anga205/Portfolio" target='_blank' className="pointer-events-auto">
+                    <img className="rounded-sm" src="https://img.shields.io/badge/Source%20Code-24292E?style=flat-square&logo=github&logoColor=white" />
+                </a>
+            </div>
             <Drawer />
             <div className="flex w-full h-screen justify-start items-center snap-center" id="home">
                 <Home/>
