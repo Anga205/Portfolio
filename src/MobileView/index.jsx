@@ -160,31 +160,31 @@ const Contacts = () => {
             <h1 className="text-[5vh] font-black pb-[2vh] text-gray-200">&lt;ContactMe/&gt;</h1>
             <div className="flex flex-col space-y-4 text-gray-200">
                 <div className="flex items-center space-x-4">
-                    <img src="/email.svg" alt="Email" className="w-[4vh]" />
+                    <img src="/email.svg" alt="Email" className="h-[4vh]" />
                     <a href="sayhi@angadbhalla.com" className="text-[2.5vh] hover:underline">sayhi@angadbhalla.com</a>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <img src="/linkedin.svg" alt="LinkedIn" className="w-[4vh]" />
+                    <img src="/linkedin.svg" alt="LinkedIn" className="h-[4vh]" />
                     <a href="https://www.linkedin.com/in/anga" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">linkedin.com/in/anga</a>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <img src="/github.png" alt="GitHub" className="w-[4vh] bg-white rounded-2xl" />
+                    <img src="/github.png" alt="GitHub" className="h-[4vh] bg-white rounded-2xl" />
                     <a href="https://github.com/Anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">github.com/Anga205</a>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <img src="/instagram.svg" alt="Instagram" className="w-[4vh]" />
+                    <img src="/instagram.svg" alt="Instagram" className="h-[4vh]" />
                     <a href="https://instagram.com/_anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">instagram.com/_anga205</a>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <img src="/discord.svg" alt="Discord" className="w-[4vh]" />
+                    <img src="/discord.svg" alt="Discord" className="h-[4vh]" />
                     <a href="https://discord.com/users/anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">discord.com/users/anga205</a>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <img src="/reddit.svg" alt="Reddit" className="w-[4vh]" />
+                    <img src="/reddit.svg" alt="Reddit" className="h-[4vh]" />
                     <a href="https://www.reddit.com/user/anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">reddit.com/user/anga205</a>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <img src="/leetcode.svg" alt="LeetCode" className="w-[4vh]" />
+                    <img src="/leetcode.svg" alt="LeetCode" className="h-[4vh]" />
                     <a href="https://leetcode.com/u/anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">leetcode.com/u/anga205</a>
                 </div>
             </div>
@@ -204,15 +204,15 @@ const MobileView = ({ projects }) => {
                 </a>
             </div>
             <Drawer />
-            <div className="flex w-full h-screen justify-start items-center snap-center" id="home">
+            <section className="flex w-full h-screen justify-start items-center snap-center" id="home">
                 <Home/>
-            </div>
-            <div className="flex w-full h-screen snap-center" id="projects">
+            </section>
+            <section className="flex w-full h-screen snap-center" id="projects">
                 <Projects projects={projects}/>
-            </div>
-            <div className="flex w-full h-screen snap-center" id="contacts">
+            </section>
+            <section className="flex w-full h-screen snap-center" id="contacts">
                 <Contacts/>
-            </div>
+            </section>
         </div>
     )
 }

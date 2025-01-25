@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
 const DrawerButton = ({ title, link = "#", newPage = false }) => {
+    const handleClick = () => {
+        if (newPage) {
+            window.open(link, "_blank")
+        } else {
+            window.location.href = link
+        }
+    }
     return (
-        <a href={link} className="text-white no-underline my-2 text-lg" target={newPage ? "_blank" : "_self"}>
-            <button className="w-full hover:bg-gray-800 p-3">
-                {title}
-            </button>
-        </a>
+        <button onClick={handleClick} className="w-full hover:bg-gray-800 p-3 text-white no-underline my-2 text-lg">
+            {title}
+        </button>
     );
 };
 
@@ -54,20 +59,20 @@ const Drawer = () => {
     const ButtonList = [
         {
             title: "Home",
-            link: "/",
+            link: "#home",
         },
         {
             title: "Projects",
-            link: "/projects",
+            link: "#projects",
         },
         {
             title: "Resume",
-            link: "/resume.pdf",
+            link: "resume.pdf",
             newPage: true,
         },
         {
             title: "Contact",
-            link: "/contact",
+            link: "#contacts",
         },
     ];
 
