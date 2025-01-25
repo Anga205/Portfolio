@@ -155,6 +155,14 @@ const Projects = ({ projects }) => {
     )
 }
 
+const Skills = () => {
+    return (
+        <div className="flex flex-col justify-center items-center w-full h-screen">
+            <h1 className="text-[3vh] font-black">&lt;Skillset/&gt;</h1>
+        </div>
+    )
+}
+
 const MobileView = ({ projects }) => {
     return (
         <div className="w-full h-screen text-gray-200 snap-y snap-mandatory scrollbar-thin scrollbar-track-black scrollbar-thumb-blue-950 overflow-y-scroll scroll-smooth">
@@ -175,6 +183,9 @@ const MobileView = ({ projects }) => {
             </section>
             <section className="flex w-full h-screen snap-center" id="contacts">
                 <Contacts/>
+            </section>
+            <section className="flex w-full h-screen snap-center" id="skills">
+                <Skills/>
             </section>
         </div>
     )

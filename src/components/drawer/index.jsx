@@ -74,6 +74,10 @@ const Drawer = () => {
             title: "Contact",
             link: "#contacts",
         },
+        {
+            title: "Skillset",
+            link: "#skills"
+        }
     ];
 
     return (

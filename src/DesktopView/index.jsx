@@ -22,24 +22,18 @@ const NavbarButton = ({ text, redirect = "#" }) => {
 
 const DesktopNavbar = () => {
     return (
-        <>
-            <nav className="fixed bg-transparent pt-[1vh] w-full slide-down bg-black bg-opacity-25 select-none animate z-10">
-                <div className="px-[20vh] mx-auto flex justify-between items-center">
-                    <div className="flex w-full justify-between items-center h-[7vh]">
-                        <img
-                            src="/anga.svg"
-                            className="h-full"
-                        />
-                        <div className="flex space-x-[4.5vh] text-gray-200" >
-                            <NavbarButton text="Home" redirect="/#home" />
-                            <NavbarButton text="Projects" redirect="/#projects" />
-                            <NavbarButton text="Resume" redirect="resume.pdf"/>
-                            <NavbarButton text="Contact" redirect="/#contacts"/>
-                        </div>
-                    </div>
+        <nav className="fixed bg-transparent pt-[1vh] w-full slide-down bg-black bg-opacity-25 select-none animate z-10">
+            <div className="px-[20vh] mx-auto flex justify-between items-center h-[7vh]">
+                <img src="/anga.svg" className="h-full" />
+                <div className="flex space-x-[4.5vh] text-gray-200">
+                    <NavbarButton text="Home" redirect="/#home" />
+                    <NavbarButton text="Projects" redirect="/#projects" />
+                    <NavbarButton text="Resume" redirect="resume.pdf" />
+                    <NavbarButton text="Contact" redirect="/#contacts" />
+                    <NavbarButton text="Skillset" redirect="/#skills" />
                 </div>
-            </nav>
-        </>
+            </div>
+        </nav>
     )
 }
 
@@ -123,8 +117,8 @@ const Header = ({ yapsDone, setYapsDone, index }) => {
 
     return (
         <div>
-            <h1 className="text-[3vh] font-bold select-none">{typedText}</h1>
-            <h1 className="text-[7vh] font-bold select-none">I&apos;m Anga.</h1>
+            <h1 className="text-[3vh] font-bold">{typedText}</h1>
+            <h1 className="text-[7vh] font-bold">I&apos;m Anga.</h1>
         </div>
     )
 }
@@ -166,8 +160,8 @@ const Home = () => {
     const [yapsDone, setYapsDone] = useState(0)
     return (
         <div className="flex justify-center items-center h-screen snap-start" id="home">
-            <div className="px-[6vh] w-[80%] flex justify-center items-center space-x-20">
-                <Tilt className="text-start translate-x-0 space-y-4 w-[55%] bg-gradient-to-tr from-blue-900 via-black to-purple-950 p-[2.5vh] border-[0.3vh] rounded-[1vh] border-gray-500">
+            <div className="px-[6vh] w-[80%] flex justify-center items-center space-x-[10vh]">
+                <Tilt className="text-start translate-x-0 space-y-[1.5vh] w-[55%] bg-gradient-to-tr from-blue-900 via-black to-purple-950 p-[2.5vh] border-[0.3vh] rounded-[1vh] border-gray-500">
                     <Header index={4} yapsDone={yapsDone} setYapsDone={setYapsDone}/>
                     <Yapping index={0} yapsDone={yapsDone} setYapsDone={setYapsDone}>I&apos;m a $age year old competitive programming enthusiast, web developer and open-source contributer. I&apos;ve done it all, from making globally scalable secure systems APIs to making the most specialized IoT prototypes.</Yapping>
                     <Yapping index={1} yapsDone={yapsDone} setYapsDone={setYapsDone}>I&apos;ve given TED talks, worked with some of the most enthusiastic tech startups, headed some of the biggest clubs in University, and competed in 40+ hackathons and coding contests.</Yapping>
@@ -188,38 +182,64 @@ const Projects = ({ projects }) => {
     )
 }
 
+const contactDetails = [
+    { src: "/email.svg", alt: "Email", href: "mailto:sayhi@angadbhalla.com", text: "sayhi@angadbhalla.com" },
+    { src: "/linkedin.svg", alt: "LinkedIn", href: "https://www.linkedin.com/in/anga", text: "linkedin.com/in/anga" },
+    { src: "/github.svg", alt: "GitHub", href: "https://github.com/Anga205", text: "github.com/Anga205" },
+    { src: "/instagram.svg", alt: "Instagram", href: "https://instagram.com/_anga205", text: "instagram.com/_anga205" },
+    { src: "/discord.svg", alt: "Discord", href: "https://discord.com/users/anga205", text: "discord.com/users/anga205" },
+    { src: "/reddit.svg", alt: "Reddit", href: "https://www.reddit.com/u/anga205", text: "reddit.com/u/anga205" },
+    { src: "/leetcode.svg", alt: "LeetCode", href: "https://leetcode.com/u/anga205", text: "leetcode.com/u/anga205" },
+]
+
 const Contacts = () => {
     return (
         <div className="flex flex-col justify-center items-center w-full h-screen translate-x-0 snap-center p-[10vh]" id="contacts">
             <h1 className="text-[5vh] font-black pb-[2vh] text-gray-200">&lt;ContactMe/&gt;</h1>
             <div className="flex flex-col space-y-4 text-gray-200">
+                {contactDetails.map(({ src, alt, href, text }) => (
+                    <div key={href} className="flex items-center space-x-4">
+                        <img src={src} alt={alt} className="w-[4vh] h-[4vh]" />
+                        <a href={href} target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">{text}</a>
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
+}
+
+const Skills = () => {
+    return (
+        <div className="flex flex-col justify-center items-center w-full h-screen translate-x-0 snap-center p-[10vh]" id="skills">
+            <h1 className="text-[5vh] font-black pb-[2vh] text-gray-200">&lt;Skillset/&gt;</h1>
+            <div className="flex flex-col space-y-4 text-gray-200">
                 <div className="flex items-center space-x-4">
-                    <img src="/email.svg" alt="Email" className="w-[4vh] h-[4vh]" />
-                    <a href="mailto:sayhi@angadbhalla.com" className="text-[2.5vh] hover:underline">sayhi@angadbhalla.com</a>
+                    <img src="/react.svg" alt="React" className="w-[4vh] h-[4vh]" />
+                    <p className="text-[2.5vh]">React</p>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <img src="/linkedin.svg" alt="LinkedIn" className="w-[4vh] h-[4vh]" />
-                    <a href="https://www.linkedin.com/in/anga" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">linkedin.com/in/anga</a>
+                    <img src="/nextjs.svg" alt="Next.js" className="w-[4vh] h-[4vh]" />
+                    <p className="text-[2.5vh]">Next.js</p>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <img src="/github.png" alt="GitHub" className="w-[4vh] h-[4vh] bg-white rounded-full" />
-                    <a href="https://github.com/Anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">github.com/Anga205</a>
+                    <img src="/tailwindcss.svg" alt="Tailwind CSS" className="w-[4vh] h-[4vh]" />
+                    <p className="text-[2.5vh]">Tailwind CSS</p>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <img src="/instagram.svg" alt="Instagram" className="w-[4vh] h-[4vh]" />
-                    <a href="https://instagram.com/_anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">instagram.com/_anga205</a>
+                    <img src="/nodejs.svg" alt="Node.js" className="w-[4vh] h-[4vh]" />
+                    <p className="text-[2.5vh]">Node.js</p>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <img src="/discord.svg" alt="Discord" className="w-[4vh] h-[4vh]" />
-                    <a href="https://discord.com/users/anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">discord.com/users/anga205</a>
+                    <img src="/expressjs.svg" alt="Express.js" className="w-[4vh] h-[4vh]" />
+                    <p className="text-[2.5vh]">Express.js</p>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <img src="/reddit.svg" alt="Reddit" className="w-[4vh] h-[4vh]" />
-                    <a href="https://www.reddit.com/u/anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">reddit.com/user/anga205</a>
+                    <img src="/mongodb.svg" alt="MongoDB" className="w-[4vh] h-[4vh]" />
+                    <p className="text-[2.5vh]">MongoDB</p>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <img src="/leetcode.svg" alt="LeetCode" className="w-[4vh] h-[4vh]" />
-                    <a href="https://leetcode.com/u/anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">leetcode.com/anga205</a>
+                    <img src="/python.svg" alt="Python" className="w-[4vh] h-[4vh]" />
+                    <p className="text-[2.5vh]">Python</p>
                 </div>
             </div>
         </div>
@@ -242,8 +262,9 @@ const DesktopView = ({ projects }) => {
             <Home />
             <Projects projects={projects}/>
             <Contacts />
+            <Skills />
         </div>
     )
 }
 
-export {DesktopView, Contacts}
+export { DesktopView, Contacts }

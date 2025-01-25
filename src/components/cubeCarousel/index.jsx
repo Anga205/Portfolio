@@ -13,7 +13,7 @@ const Buttons = ({ project }) => (
         <a href={project.github} target="_blank" className={`text-blue-500 ${project.link ? 'w-1/2' : 'w-full'}`}>
             <button className="flex items-center justify-center space-x-2 bg-white p-2 rounded-md w-full">
                 <div className='w-6 h-6'>
-                    <img src="github.png" alt="Github" className="w-full h-full rounded-full"/>
+                    <img src="github.svg" alt="Github" className="w-full h-full rounded-full"/>
                 </div>
                 <span className='pl-2'>{project.link ? 'Github' : 'View on Github'}</span>
             </button>
