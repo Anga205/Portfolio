@@ -190,8 +190,38 @@ const Projects = ({ projects }) => {
 
 const Contacts = () => {
     return (
-        <div className="flex justify-center items-center w-full h-screen translate-x-0 snap-center" id="contacts">
-            <h1>My Contacts</h1>
+        <div className="flex flex-col justify-center items-center w-full h-screen translate-x-0 snap-center p-[10vh]" id="contacts">
+            <h1 className="text-[5vh] font-black pb-[2vh] text-gray-200">&lt;ContactMe/&gt;</h1>
+            <div className="flex flex-col space-y-4 text-gray-200">
+                <div className="flex items-center space-x-4">
+                    <img src="/email.svg" alt="Email" className="w-[4vh]" />
+                    <a href="sayhi@angadbhalla.com" className="text-[2.5vh] hover:underline">sayhi@angadbhalla.com</a>
+                </div>
+                <div className="flex items-center space-x-4">
+                    <img src="/linkedin.svg" alt="LinkedIn" className="w-[4vh]" />
+                    <a href="https://www.linkedin.com/in/anga" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">linkedin.com/in/anga</a>
+                </div>
+                <div className="flex items-center space-x-4">
+                    <img src="/github.png" alt="GitHub" className="w-[4vh] bg-white rounded-2xl" />
+                    <a href="https://github.com/Anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">github.com/Anga205</a>
+                </div>
+                <div className="flex items-center space-x-4">
+                    <img src="/instagram.svg" alt="Instagram" className="w-[4vh]" />
+                    <a href="https://instagram.com/_anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">instagram.com/_anga205</a>
+                </div>
+                <div className="flex items-center space-x-4">
+                    <img src="/discord.svg" alt="Discord" className="w-[4vh]" />
+                    <a href="https://discord.com/users/anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">discord.com/users/anga205</a>
+                </div>
+                <div className="flex items-center space-x-4">
+                    <img src="/reddit.svg" alt="Reddit" className="w-[4vh]" />
+                    <a href="https://www.reddit.com/user/anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">reddit.com/user/anga205</a>
+                </div>
+                <div className="flex items-center space-x-4">
+                    <img src="/leetcode.svg" alt="LeetCode" className="w-[4vh]" />
+                    <a href="https://leetcode.com/anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">leetcode.com/anga205</a>
+                </div>
+            </div>
         </div>
     )
 }
@@ -211,6 +241,7 @@ const DesktopView = ({ projects }) => {
             <DesktopNavbar />
             <Home />
             <Projects projects={projects}/>
+            <Contacts />
         </div>
     )
 }
