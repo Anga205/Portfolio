@@ -253,7 +253,7 @@ const Skills = () => {
 
 const MobileView = ({ projects }) => {
     return (
-        <div className="w-full h-screen text-gray-200 snap-y snap-mandatory scrollbar-thin scrollbar-track-black scrollbar-thumb-blue-950 overflow-y-scroll scroll-smooth">
+        <div className="w-full overflow-x-hidden h-screen text-gray-200 snap-y snap-mandatory scrollbar-thin scrollbar-track-black scrollbar-thumb-blue-950 overflow-y-scroll scroll-smooth">
             <div className="bg-gradient-to-b from-black via-gray-950 to-gray-900 w-screen h-screen fixed py-20 select-none z-[-1]">
                 <img className="w-full opacity-15" src="/nodes.png" draggable="false"/>
             </div>
