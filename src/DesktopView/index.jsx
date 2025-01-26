@@ -208,53 +208,17 @@ const Contacts = () => {
     )
 }
 
-const Skills = () => {
-    return (
-        <div className="flex flex-col justify-center items-center w-full h-screen translate-x-0 snap-center p-[10vh]" id="skills">
-            <h1 className="text-[5vh] font-black pb-[2vh] text-gray-200">&lt;Skillset/&gt;</h1>
-            <div className="flex flex-col space-y-4 text-gray-200">
-                <div className="flex items-center space-x-4">
-                    <img src="/react.svg" alt="React" className="w-[4vh] h-[4vh]" />
-                    <p className="text-[2.5vh]">React</p>
-                </div>
-                <div className="flex items-center space-x-4">
-                    <img src="/nextjs.svg" alt="Next.js" className="w-[4vh] h-[4vh]" />
-                    <p className="text-[2.5vh]">Next.js</p>
-                </div>
-                <div className="flex items-center space-x-4">
-                    <img src="/tailwindcss.svg" alt="Tailwind CSS" className="w-[4vh] h-[4vh]" />
-                    <p className="text-[2.5vh]">Tailwind CSS</p>
-                </div>
-                <div className="flex items-center space-x-4">
-                    <img src="/nodejs.svg" alt="Node.js" className="w-[4vh] h-[4vh]" />
-                    <p className="text-[2.5vh]">Node.js</p>
-                </div>
-                <div className="flex items-center space-x-4">
-                    <img src="/expressjs.svg" alt="Express.js" className="w-[4vh] h-[4vh]" />
-                    <p className="text-[2.5vh]">Express.js</p>
-                </div>
-                <div className="flex items-center space-x-4">
-                    <img src="/mongodb.svg" alt="MongoDB" className="w-[4vh] h-[4vh]" />
-                    <p className="text-[2.5vh]">MongoDB</p>
-                </div>
-                <div className="flex items-center space-x-4">
-                    <img src="/python.svg" alt="Python" className="w-[4vh] h-[4vh]" />
-                    <p className="text-[2.5vh]">Python</p>
-                </div>
-            </div>
-        </div>
-    )
-}
 
 const DesktopView = ({ projects }) => {
     
     return (
         <div className="w-screen h-screen text-gray-200 snap-y snap-mandatory scroll-smooth scrollbar-thin scrollbar-track-black scrollbar-thumb-slate-800 overflow-y-scroll">
-            <div className="bg-gradient-to-b from-black via-gray-950 to-gray-900 w-full h-full absolute p-10 select-none z-[-1]">
+            <div className="bg-gradient-to-b from-black via-gray-950 to-gray-900 w-full h-full absolute p-[4vh] select-none z-[-1]">
                 <img className="h-full opacity-10" src="/nodes.png" draggable="false" />
             </div>
-            <div className="flex items-end justify-end w-full h-full absolute pb-1 pr-3 z-10 pointer-events-none">
-                <a className='pointer-events-auto'>
+            <div className="flex items-end justify-between w-full pb-[0.3vh] h-full absolute z-10 pointer-events-none">
+                <div/>
+                <a className='pointer-events-auto pr-[1vh]'>
                     <GitHubButton href="https://github.com/Anga205/Portfolio" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Star Anga205/Portfolio on GitHub">Source Code</GitHubButton>
                 </a>
             </div>
@@ -262,7 +226,6 @@ const DesktopView = ({ projects }) => {
             <Home />
             <Projects projects={projects}/>
             <Contacts />
-            <Skills />
         </div>
     )
 }

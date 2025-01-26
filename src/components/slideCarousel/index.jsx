@@ -6,6 +6,9 @@ import 'swiper/css/pagination';
 
 import './sliderStyle.css';
 
+import { FaGolang, FaReact, FaNodeJs } from 'react-icons/fa6';
+import { SiExpress } from 'react-icons/si';
+
 import { Keyboard, Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 
 const Buttons = ({ project }) => (
@@ -34,56 +37,56 @@ const Buttons = ({ project }) => (
 const Tag = ({ tag }) => {
   if (tag.toLowerCase() === 'go') {
     return (
-      <div className='flex bg-blue-500 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
-        <img className='aspect-square' src='/go.svg' alt={tag} />
+      <div className='flex items-center bg-blue-500 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
+        <FaGolang className='w-full h-full text-[#00ADD8]'/>
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     );
   } else if (tag.toLowerCase() === 'python') {
     return (
-      <div className='flex bg-yellow-500 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
+      <div className='flex items-center bg-yellow-500 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
         <img className='aspect-square' src='/python.svg' alt={tag} />
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     );
   } else if (tag.toLowerCase() === 'mongodb') {
     return (
-      <div className='flex bg-green-500 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
+      <div className='flex items-center bg-green-500 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
         <img className='aspect-square' src='/mongodb.svg' alt={tag} />
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     );
   } else if (tag.toLowerCase() === 'sqlite') {
     return (
-      <div className='flex bg-gray-500 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
+      <div className='flex items-center bg-gray-500 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
         <img className='aspect-square' src='/sqlite.svg' alt={tag} />
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     );
   } else if (tag.toLowerCase() === 'react') {
     return (
-      <div className='flex bg-blue-300 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
-        <img className='aspect-square' src='/react.svg' alt={tag} />
+      <div className='flex items-center bg-blue-300 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
+        <FaReact className='w-full h-full text-[#61DAFB]'/>
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     );
   } else if (tag.toLowerCase() === 'nodejs') {
     return (
-      <div className='flex bg-green-300 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
-        <img className='aspect-square' src='/nodejs.svg' alt={tag} />
+      <div className='flex items-center bg-green-300 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
+        <FaNodeJs className='w-full h-full text-[#8cc84b]'/>
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     );
   } else if (tag.toLowerCase() === 'express') {
     return (
-      <div className='flex bg-gray-500 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
-        <img className='aspect-square' src='/express.svg' alt={tag} />
+      <div className='flex items-center bg-gray-500 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
+        <SiExpress className='w-full h-full text-[#000]'/>
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     );
   } else if (tag.toLowerCase() === 'mysql') {
     return (
-      <div className='flex bg-blue-900 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
+      <div className='flex items-center bg-blue-900 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
         <img className='aspect-square' src='/mysql.svg' alt={tag} />
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
