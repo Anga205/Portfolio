@@ -175,9 +175,11 @@ const Skills = () => {
         });
 
         return () => {
-            skillSections.current.forEach(section => {
-                observer.unobserve(section);
-            });
+            skillSections.current
+                .filter(section => section)
+                .forEach(section => {
+                    observer.unobserve(section);
+                });
         };
     }, []);
 
@@ -186,7 +188,7 @@ const Skills = () => {
             <h1 ref={el => skillSections.current[0] = el} className="text-xl font-black font-mono skills-slide-right-mobile">&lt;Skillset/&gt;</h1>
             <div ref={el => skillSections.current[1] = el} className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center skills-slide-left-mobile">
                 <p>$&#123;Languages&#125;</p>
-                <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50}>
+                <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="right">
                     <div className="flex">
                         <img className="mr-3" src="https://skillicons.dev/icons?i=go"/>
                         <img className="mr-3" src="https://skillicons.dev/icons?i=python"/>
@@ -200,7 +202,7 @@ const Skills = () => {
             </div>
             <div ref={el => skillSections.current[2] = el} className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center skills-slide-right-mobile">
                 <p>$&#123;WebDevelopment&#125;</p>
-                <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50}>
+                <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="left">
                     <div className="flex">
                         <img className="mr-3" src="https://skillicons.dev/icons?i=react"/>
                         <img className="mr-3" src="https://skillicons.dev/icons?i=solidjs"/>
@@ -214,7 +216,7 @@ const Skills = () => {
             </div>
             <div ref={el => skillSections.current[3] = el} className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center skills-slide-left-mobile">
                 <p>$&#123;BackendDevelopment&#125;</p>
-                <Marquee gradient={true} gradientColor="black" gradientWidth={50} className="opacity-60" speed={50}>
+                <Marquee gradient={true} gradientColor="black" gradientWidth={50} className="opacity-60" speed={50} direction="right">
                     <div className="flex w-full">
                         <img className="mr-3" src="https://skillicons.dev/icons?i=django"/>
                         <img className="mr-3" src="https://skillicons.dev/icons?i=flask"/>
@@ -229,7 +231,7 @@ const Skills = () => {
             </div>
             <div ref={el => skillSections.current[4] = el} className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center skills-slide-right-mobile">
                 <p>$&#123;Databases&#125;</p>
-                <Marquee gradient={true} gradientColor="black" gradientWidth={50} className="opacity-60" speed={50}>
+                <Marquee gradient={true} gradientColor="black" gradientWidth={50} className="opacity-60" speed={50} direction="left">
                     <div className="flex w-full">
                         <img className="mr-3" src="https://skillicons.dev/icons?i=mysql"/>
                         <img className="mr-3" src="https://skillicons.dev/icons?i=sqlite"/>

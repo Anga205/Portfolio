@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import "./index.css"
 import {Slider} from '../components/slideCarousel'
 import Tilt from 'react-parallax-tilt'
 import GitHubButton from 'react-github-btn'
+import Marquee from "react-fast-marquee";
 
 const NavbarButton = ({ text, redirect = "#" }) => {
     const handleClick = () => {
@@ -29,6 +30,7 @@ const DesktopNavbar = () => {
                     <NavbarButton text="Home" redirect="/#home" />
                     <NavbarButton text="Projects" redirect="/#projects" />
                     <NavbarButton text="Resume" redirect="resume.pdf" />
+                    <NavbarButton text="Skills" redirect="/#skills" />
                     <NavbarButton text="Contact" redirect="/#contacts" />
                 </div>
             </div>
@@ -207,6 +209,78 @@ const Contacts = () => {
     )
 }
 
+const Skills = () => {
+
+    return (
+        <div className="flex flex-col justify-center items-center w-full h-screen translate-x-0 snap-center p-[10vh]" id="skills">
+            <h1 className="text-[8vh] font-black font-mono skills-slide-right mb-[3vh]">&lt;Skillset/&gt;</h1>
+            <div className='flex w-10/12 space-x-[4vh]'>
+                <div className='flex flex-col w-1/2 space-y-[4vh]'>
+                    <div className="bg-black w-full py-4 px-8 rounded-xl">
+                        <p className='w-full text-center text-[3.4vh] font-semibold'>Languages</p>
+                        <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="right">
+                            <div className="flex">
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=go"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=python"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=java"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=bash"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=c"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=javascript"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=matlab"/>
+                            </div>
+                        </Marquee>
+                    </div>
+                    <div className="bg-black w-full py-4 px-8 rounded-xl">
+                        <p className='w-full text-center text-[3.4vh] font-semibold'>Web Development</p>
+                        <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="right">
+                            <div className="flex">
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=react"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=solidjs"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=tailwind"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=vite"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=nextjs"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=wasm"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=typescript"/>
+                            </div>
+                        </Marquee>
+                    </div>
+                </div>
+                <div className='flex flex-col w-1/2 space-y-[4vh]'>
+                    <div className="bg-black w-full py-4 px-8 rounded-xl">
+                        <p className='w-full text-center text-[3.4vh] font-semibold'>Hosting & Cloud</p>
+                        <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="right">
+                            <div className="flex">
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=raspberrypi"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=vercel"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=netlify"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=gcp"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=aws"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=azure"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=linux"/>
+                            </div>
+                        </Marquee>
+                    </div>
+                    <div className="bg-black w-full py-4 px-8 rounded-xl">
+                        <p className='w-full text-center text-[3.4vh] font-semibold'>Backend Development</p>
+                        <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="right">
+                            <div className="flex">
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=django"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=flask"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=fastapi"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=expressjs"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=django"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=flask"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=fastapi"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=expressjs"/>
+                            </div>
+                        </Marquee>
+                    </div>
+                </div>
+            </div>
+            <p className="font-mono w-9/12 text-center text-[3vh] mt-[4vh]">And more! If my skillset doesnt meet your requirements, I can learn your desired tech stack in a pinch!</p>
+        </div>
+    )
+}
 
 const DesktopView = ({ projects }) => {
     
@@ -224,6 +298,7 @@ const DesktopView = ({ projects }) => {
             <DesktopNavbar />
             <Home />
             <Projects projects={projects}/>
+            <Skills />
             <Contacts />
         </div>
     )
