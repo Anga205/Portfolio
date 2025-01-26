@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import "./index.css"
-import Slider from '../components/slideCarousel'
+import {Slider} from '../components/slideCarousel'
 import Tilt from 'react-parallax-tilt'
 import GitHubButton from 'react-github-btn'
+import Marquee from "react-fast-marquee";
 
 const NavbarButton = ({ text, redirect = "#" }) => {
     const handleClick = () => {
@@ -22,24 +23,18 @@ const NavbarButton = ({ text, redirect = "#" }) => {
 
 const DesktopNavbar = () => {
     return (
-        <>
-            <nav className="fixed bg-transparent pt-[1vh] w-full slide-down bg-black bg-opacity-25 select-none animate z-10">
-                <div className="px-[20vh] mx-auto flex justify-between items-center">
-                    <div className="flex w-full justify-between items-center h-[7vh]">
-                        <img
-                            src="/anga.svg"
-                            className="h-full"
-                        />
-                        <div className="flex space-x-[4.5vh] text-gray-200" >
-                            <NavbarButton text="Home" redirect="/#home" />
-                            <NavbarButton text="Projects" redirect="/#projects" />
-                            <NavbarButton text="Resume" redirect="resume.pdf"/>
-                            <NavbarButton text="Contact" redirect="/#contacts"/>
-                        </div>
-                    </div>
+        <nav className="fixed bg-transparent py-[1vh] w-full slide-down select-none animate z-10">
+            <div className="px-[20vh] flex justify-between items-center h-[7vh]">
+                <img src="/anga.svg" className="h-full" />
+                <div className="flex space-x-[4.5vh] text-gray-200">
+                    <NavbarButton text="Home" redirect="/#home" />
+                    <NavbarButton text="Projects" redirect="/#projects" />
+                    <NavbarButton text="Resume" redirect="resume.pdf" />
+                    <NavbarButton text="Skills" redirect="/#skills" />
+                    <NavbarButton text="Contact" redirect="/#contacts" />
                 </div>
-            </nav>
-        </>
+            </div>
+        </nav>
     )
 }
 
@@ -123,8 +118,8 @@ const Header = ({ yapsDone, setYapsDone, index }) => {
 
     return (
         <div>
-            <h1 className="text-[3vh] font-bold select-none">{typedText}</h1>
-            <h1 className="text-[7vh] font-bold select-none">I&apos;m Anga.</h1>
+            <h1 className="text-[3vh] font-bold">{typedText}</h1>
+            <h1 className="text-[7vh] font-bold">I&apos;m Anga.</h1>
         </div>
     )
 }
@@ -166,8 +161,8 @@ const Home = () => {
     const [yapsDone, setYapsDone] = useState(0)
     return (
         <div className="flex justify-center items-center h-screen snap-start" id="home">
-            <div className="px-[6vh] w-[80%] flex justify-center items-center space-x-20">
-                <Tilt className="text-start translate-x-0 space-y-4 w-[55%] bg-gradient-to-tr from-blue-900 via-black to-purple-950 p-[2.5vh] border-[0.3vh] rounded-[1vh] border-gray-500">
+            <div className="px-[6vh] w-[80%] flex justify-center items-center space-x-[10vh]">
+                <Tilt className="text-start translate-x-0 space-y-[1.5vh] w-[55%] bg-gradient-to-tr from-blue-900 via-black to-purple-950 p-[2.5vh] border-[0.3vh] rounded-[1vh] border-gray-500">
                     <Header index={4} yapsDone={yapsDone} setYapsDone={setYapsDone}/>
                     <Yapping index={0} yapsDone={yapsDone} setYapsDone={setYapsDone}>I&apos;m a $age year old competitive programming enthusiast, web developer and open-source contributer. I&apos;ve done it all, from making globally scalable secure systems APIs to making the most specialized IoT prototypes.</Yapping>
                     <Yapping index={1} yapsDone={yapsDone} setYapsDone={setYapsDone}>I&apos;ve given TED talks, worked with some of the most enthusiastic tech startups, headed some of the biggest clubs in University, and competed in 40+ hackathons and coding contests.</Yapping>
@@ -188,40 +183,101 @@ const Projects = ({ projects }) => {
     )
 }
 
+const contactDetails = [
+    { src: "/email.svg", alt: "Email", href: "mailto:sayhi@angadbhalla.com", text: "sayhi@angadbhalla.com" },
+    { src: "/linkedin.svg", alt: "LinkedIn", href: "https://www.linkedin.com/in/anga", text: "linkedin.com/in/anga" },
+    { src: "/github.svg", alt: "GitHub", href: "https://github.com/Anga205", text: "github.com/Anga205" },
+    { src: "/instagram.svg", alt: "Instagram", href: "https://instagram.com/_anga205", text: "instagram.com/_anga205" },
+    { src: "/discord.svg", alt: "Discord", href: "https://discord.com/users/anga205", text: "discord.com/users/anga205" },
+    { src: "/reddit.svg", alt: "Reddit", href: "https://www.reddit.com/u/anga205", text: "reddit.com/u/anga205" },
+    { src: "/leetcode.svg", alt: "LeetCode", href: "https://leetcode.com/u/anga205", text: "leetcode.com/u/anga205" },
+]
+
 const Contacts = () => {
     return (
         <div className="flex flex-col justify-center items-center w-full h-screen translate-x-0 snap-center p-[10vh]" id="contacts">
             <h1 className="text-[5vh] font-black pb-[2vh] text-gray-200">&lt;ContactMe/&gt;</h1>
             <div className="flex flex-col space-y-4 text-gray-200">
-                <div className="flex items-center space-x-4">
-                    <img src="/email.svg" alt="Email" className="w-[4vh] h-[4vh]" />
-                    <a href="mailto:sayhi@angadbhalla.com" className="text-[2.5vh] hover:underline">sayhi@angadbhalla.com</a>
+                {contactDetails.map(({ src, alt, href, text }) => (
+                    <div key={href} className="flex items-center space-x-4">
+                        <img src={src} alt={alt} className="w-[4vh] h-[4vh]" />
+                        <a href={href} target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">{text}</a>
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
+}
+
+const Skills = () => {
+
+    return (
+        <div className="flex flex-col justify-center items-center w-full h-screen translate-x-0 snap-center p-[10vh]" id="skills">
+            <h1 className="text-[8vh] font-black font-mono skills-slide-right mb-[3vh]">&lt;Skillset/&gt;</h1>
+            <div className='flex w-10/12 space-x-[4vh]'>
+                <div className='flex flex-col w-1/2 space-y-[4vh]'>
+                    <div className="bg-black w-full py-4 px-8 rounded-xl">
+                        <p className='w-full text-center text-[3.4vh] font-semibold'>Languages</p>
+                        <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="right">
+                            <div className="flex">
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=go"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=python"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=java"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=bash"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=c"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=javascript"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=matlab"/>
+                            </div>
+                        </Marquee>
+                    </div>
+                    <div className="bg-black w-full py-4 px-8 rounded-xl">
+                        <p className='w-full text-center text-[3.4vh] font-semibold'>Web Development</p>
+                        <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="right">
+                            <div className="flex">
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=react"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=solidjs"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=tailwind"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=vite"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=nextjs"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=wasm"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=typescript"/>
+                            </div>
+                        </Marquee>
+                    </div>
                 </div>
-                <div className="flex items-center space-x-4">
-                    <img src="/linkedin.svg" alt="LinkedIn" className="w-[4vh] h-[4vh]" />
-                    <a href="https://www.linkedin.com/in/anga" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">linkedin.com/in/anga</a>
-                </div>
-                <div className="flex items-center space-x-4">
-                    <img src="/github.png" alt="GitHub" className="w-[4vh] h-[4vh] bg-white rounded-full" />
-                    <a href="https://github.com/Anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">github.com/Anga205</a>
-                </div>
-                <div className="flex items-center space-x-4">
-                    <img src="/instagram.svg" alt="Instagram" className="w-[4vh] h-[4vh]" />
-                    <a href="https://instagram.com/_anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">instagram.com/_anga205</a>
-                </div>
-                <div className="flex items-center space-x-4">
-                    <img src="/discord.svg" alt="Discord" className="w-[4vh] h-[4vh]" />
-                    <a href="https://discord.com/users/anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">discord.com/users/anga205</a>
-                </div>
-                <div className="flex items-center space-x-4">
-                    <img src="/reddit.svg" alt="Reddit" className="w-[4vh] h-[4vh]" />
-                    <a href="https://www.reddit.com/u/anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">reddit.com/user/anga205</a>
-                </div>
-                <div className="flex items-center space-x-4">
-                    <img src="/leetcode.svg" alt="LeetCode" className="w-[4vh] h-[4vh]" />
-                    <a href="https://leetcode.com/u/anga205" target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">leetcode.com/anga205</a>
+                <div className='flex flex-col w-1/2 space-y-[4vh]'>
+                    <div className="bg-black w-full py-4 px-8 rounded-xl">
+                        <p className='w-full text-center text-[3.4vh] font-semibold'>Hosting & Cloud</p>
+                        <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="right">
+                            <div className="flex">
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=raspberrypi"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=vercel"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=netlify"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=gcp"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=aws"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=azure"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=linux"/>
+                            </div>
+                        </Marquee>
+                    </div>
+                    <div className="bg-black w-full py-4 px-8 rounded-xl">
+                        <p className='w-full text-center text-[3.4vh] font-semibold'>Backend Development</p>
+                        <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="right">
+                            <div className="flex">
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=django"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=flask"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=fastapi"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=expressjs"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=django"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=flask"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=fastapi"/>
+                                <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=expressjs"/>
+                            </div>
+                        </Marquee>
+                    </div>
                 </div>
             </div>
+            <p className="font-mono w-9/12 text-center text-[3vh] mt-[4vh]">And more! If my skillset doesnt meet your requirements, I can learn your desired tech stack in a pinch!</p>
         </div>
     )
 }
@@ -230,20 +286,22 @@ const DesktopView = ({ projects }) => {
     
     return (
         <div className="w-screen h-screen text-gray-200 snap-y snap-mandatory scroll-smooth scrollbar-thin scrollbar-track-black scrollbar-thumb-slate-800 overflow-y-scroll">
-            <div className="bg-gradient-to-b from-black via-gray-950 to-gray-900 w-full h-full absolute p-10 select-none z-[-1]">
+            <div className="bg-gradient-to-b from-black via-gray-950 to-gray-900 w-full h-full absolute p-[4vh] select-none z-[-1]">
                 <img className="h-full opacity-10" src="/nodes.png" draggable="false" />
             </div>
-            <div className="flex items-end justify-end w-full h-full absolute pb-1 pr-3 z-10 pointer-events-none">
-                <a className='pointer-events-auto'>
-                    <GitHubButton href="https://github.com/Anga205/Portfolio" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Star Anga205/Portfolio on GitHub">Source Code</GitHubButton>
+            <div className="flex items-end justify-between w-full pb-[0.3vh] h-full absolute z-10 pointer-events-none">
+                <div/>
+                <a className='pointer-events-auto pr-[1vh]'>
+                    <GitHubButton href="https://github.com/Anga205/Portfolio" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="Star Anga205/Portfolio on GitHub">Source Code</GitHubButton>
                 </a>
             </div>
             <DesktopNavbar />
             <Home />
             <Projects projects={projects}/>
+            <Skills />
             <Contacts />
         </div>
     )
 }
 
-export {DesktopView, Contacts}
+export { DesktopView, Contacts }

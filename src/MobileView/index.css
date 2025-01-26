@@ -1,9 +1,30 @@
-.slide-left-mobile {
+.home-image-slide-left-mobile {
     transform: translateX(-25%);
     opacity: 0;
 }
 
-.slide-right-mobile {
+.home-image-slide-right-mobile {
     transform: translateX(25%);
+    opacity: 0;
+}
+
+@keyframes slideInSkills {
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+.slide-in-skills {
+    animation: ease-out slideInSkills 1.5s forwards;
+}
+
+.skills-slide-left-mobile {
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+.skills-slide-right-mobile {
+    transform: translateX(50%);
     opacity: 0;
 }

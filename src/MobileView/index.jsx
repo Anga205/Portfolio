@@ -1,14 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./index.css"
 import Drawer from "../components/drawer";
 import Tilt from "react-parallax-tilt";
 import Carousel from "../components/cubeCarousel";
 import GitHubButton from 'react-github-btn'
 import { Contacts } from "../DesktopView";
+import Marquee from "react-fast-marquee";
 
 const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
     useEffect(() => {
-        const elementsToAnimate = document.querySelectorAll('.slide-left-mobile, .slide-right-mobile');
+        const elementsToAnimate = document.querySelectorAll('.home-image-slide-left-mobile, .home-image-slide-right-mobile');
         if (index===yapsDone){
             elementsToAnimate.forEach(element => {
                 element.classList.add('animate')
@@ -18,7 +19,7 @@ const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
     },[yapsDone])
     return (
         <div className="relative w-9/12 select-none" id="image-of-me">
-            <div className='slide-left-mobile'>
+            <div className='home-image-slide-left-mobile'>
                 <img
                     src="/border.png"
                     alt="Background"
@@ -30,7 +31,7 @@ const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
                 <img
                 src="/me.png"
                 alt="Foreground"
-                className="object-cover slide-right-mobile"
+                className="object-cover home-image-slide-right-mobile"
                 draggable="false"
                 />
             </div>
@@ -155,6 +156,101 @@ const Projects = ({ projects }) => {
     )
 }
 
+const Skills = () => {
+    const skillSections = useRef([]);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-in-skills');
+                } else {
+                    entry.target.classList.remove('slide-in-skills');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        skillSections.current.forEach(section => {
+            observer.observe(section);
+        });
+
+        return () => {
+            skillSections.current
+                .filter(section => section)
+                .forEach(section => {
+                    observer.unobserve(section);
+                });
+        };
+    }, []);
+
+    return (
+        <div className="flex flex-col justify-center items-center px-8 space-y-4 w-full h-[92vh]">
+            <h1 ref={el => skillSections.current[0] = el} className="text-xl font-black font-mono skills-slide-right-mobile">&lt;Skillset/&gt;</h1>
+            <div ref={el => skillSections.current[1] = el} className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center skills-slide-left-mobile">
+                <p>$&#123;Languages&#125;</p>
+                <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="right">
+                    <div className="flex">
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=go"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=python"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=java"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=bash"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=c"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=javascript"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=matlab"/>
+                    </div>
+                </Marquee>
+            </div>
+            <div ref={el => skillSections.current[2] = el} className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center skills-slide-right-mobile">
+                <p>$&#123;WebDevelopment&#125;</p>
+                <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="left">
+                    <div className="flex">
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=react"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=solidjs"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=tailwind"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=vite"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=nextjs"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=wasm"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=typescript"/>
+                    </div>
+                </Marquee>
+            </div>
+            <div ref={el => skillSections.current[3] = el} className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center skills-slide-left-mobile">
+                <p>$&#123;BackendDevelopment&#125;</p>
+                <Marquee gradient={true} gradientColor="black" gradientWidth={50} className="opacity-60" speed={50} direction="right">
+                    <div className="flex w-full">
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=django"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=flask"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=fastapi"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=expressjs"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=django"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=flask"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=fastapi"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=expressjs"/>
+                    </div>
+                </Marquee>
+            </div>
+            <div ref={el => skillSections.current[4] = el} className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center skills-slide-right-mobile">
+                <p>$&#123;Databases&#125;</p>
+                <Marquee gradient={true} gradientColor="black" gradientWidth={50} className="opacity-60" speed={50} direction="left">
+                    <div className="flex w-full">
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=mysql"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=sqlite"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=postgres"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=mongodb"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=mysql"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=sqlite"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=postgres"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=mongodb"/>
+                    </div>
+                </Marquee>
+            </div>
+            <div ref={el => skillSections.current[5] = el} className="skills-slide-left-mobile">
+                <h1 className="text-xl font-black font-mono">And a lot more...</h1>
+            </div>
+        </div>
+    )
+}
+
 const MobileView = ({ projects }) => {
     return (
         <div className="w-full h-screen text-gray-200 snap-y snap-mandatory scrollbar-thin scrollbar-track-black scrollbar-thumb-blue-950 overflow-y-scroll scroll-smooth">
@@ -163,7 +259,7 @@ const MobileView = ({ projects }) => {
             </div>
             <div className="flex items-end justify-end w-full h-full absolute pr-2 pb-1 z-10 pointer-events-none">
                 <a className='pointer-events-auto'>
-                    <GitHubButton href="https://github.com/Anga205/Portfolio" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Star Anga205/Portfolio on GitHub">Source Code</GitHubButton>
+                    <GitHubButton href="https://github.com/Anga205/Portfolio" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="Star Anga205/Portfolio on GitHub">Source Code</GitHubButton>
                 </a>
             </div>
             <Drawer />
@@ -175,6 +271,9 @@ const MobileView = ({ projects }) => {
             </section>
             <section className="flex w-full h-screen snap-center" id="contacts">
                 <Contacts/>
+            </section>
+            <section className="flex w-full h-screen snap-center" id="skills">
+                <Skills/>
             </section>
         </div>
     )
