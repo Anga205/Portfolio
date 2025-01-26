@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import "./index.css"
-import Slider from '../components/slideCarousel'
+import {Slider} from '../components/slideCarousel'
 import Tilt from 'react-parallax-tilt'
 import GitHubButton from 'react-github-btn'
 
@@ -22,8 +22,8 @@ const NavbarButton = ({ text, redirect = "#" }) => {
 
 const DesktopNavbar = () => {
     return (
-        <nav className="fixed bg-transparent pt-[1vh] w-full slide-down bg-black bg-opacity-25 select-none animate z-10">
-            <div className="px-[20vh] mx-auto flex justify-between items-center h-[7vh]">
+        <nav className="fixed backdrop-blur-md py-[1vh] w-full slide-down select-none animate z-10">
+            <div className="px-[20vh] flex justify-between items-center h-[7vh]">
                 <img src="/anga.svg" className="h-full" />
                 <div className="flex space-x-[4.5vh] text-gray-200">
                     <NavbarButton text="Home" redirect="/#home" />

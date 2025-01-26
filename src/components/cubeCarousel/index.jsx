@@ -7,6 +7,7 @@ import 'swiper/css/pagination';
 import './cubeStyle.css';
 
 import { Autoplay, EffectCube, Pagination } from 'swiper/modules';
+import { Tag } from '../slideCarousel';
 
 const Buttons = ({ project }) => (
     <div className="flex justify-between space-x-3 w-full select-none pb-4">
@@ -59,14 +60,20 @@ return (
                 <SwiperSlide key={index} className='cube-slide'>
                     <div style={{ backgroundImage: project.gradient }} className='select-none flex flex-col justify-between w-full h-full p-4 rounded-md border-spacing-4 border-gray-700 border-2 overflow-hidden'>
                         <div>
-                            <h1 className="w-full text-center text-4xl font-bold">
+                            <h1 className="w-full text-center text-2xl font-bold">
                                 {project.name}
                             </h1>
-                            <hr className='m-4'/>
+                            <hr className='mt-1 mb-2'/>
                             <div className="aspect-square w-full">
                                 <img src={project.image} className='border-gray-700 border-2 rounded-lg'/>
                             </div>
-                            <h3 className='pt-2'>{project.description}</h3>
+                            <h3 className='pt-2 text-sm'>{project.description}</h3>
+                        </div>
+                        <div className='flex space-x-3 flex-wrap space-y-1 mb-1'>
+                            <div/>
+                            {project.tags.map((tag, index) => (
+                                <Tag key={index} tag={tag} onMobile={true}/>
+                            ))}
                         </div>
                         <Buttons project={project} />
                     </div>

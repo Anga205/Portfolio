@@ -37,57 +37,73 @@ const Buttons = ({ project }) => (
 const Tag = ({ tag }) => {
   if (tag.toLowerCase() === 'go') {
     return (
-      <div className='flex items-center bg-blue-500 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
-        <FaGolang className='w-full h-full text-[#00ADD8]'/>
+      <div className='flex items-center bg-blue-500 p-[1vh] space-x-[0.5vh] rounded-full bg-opacity-45 h-[4vh]'>
+        <div className="h-full aspect-square">
+          <FaGolang className='w-full h-full text-[#00ADD8]'/>
+        </div>
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     );
   } else if (tag.toLowerCase() === 'python') {
     return (
-      <div className='flex items-center bg-yellow-500 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
-        <img className='aspect-square' src='/python.svg' alt={tag} />
+      <div className='flex items-center bg-yellow-500 p-[1vh] space-x-[0.5vh] rounded-full bg-opacity-45 h-[4vh]'>
+        <div className="h-full aspect-square">
+          <img src={`/${tag.toLowerCase()}.svg`} alt={tag} />
+        </div>
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     );
   } else if (tag.toLowerCase() === 'mongodb') {
     return (
-      <div className='flex items-center bg-green-500 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
-        <img className='aspect-square' src='/mongodb.svg' alt={tag} />
+      <div className='flex items-center bg-green-500 p-[1vh] space-x-[0.5vh] rounded-full bg-opacity-45 h-[4vh]'>
+        <div className="h-full aspect-square">
+        <img src={`/${tag.toLowerCase()}.svg`} alt={tag} />
+        </div>
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     );
   } else if (tag.toLowerCase() === 'sqlite') {
     return (
-      <div className='flex items-center bg-gray-500 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
-        <img className='aspect-square' src='/sqlite.svg' alt={tag} />
+      <div className='flex items-center bg-gray-500 p-[1vh] space-x-[0.5vh] rounded-full bg-opacity-45 h-[4vh]'>
+        <div className="h-full aspect-square">
+          <img src={`/${tag.toLowerCase()}.svg`} alt={tag} />
+        </div>
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     );
   } else if (tag.toLowerCase() === 'react') {
     return (
-      <div className='flex items-center bg-blue-300 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
-        <FaReact className='w-full h-full text-[#61DAFB]'/>
+      <div className='flex items-center bg-blue-300 p-[1vh] space-x-[0.5vh] rounded-full bg-opacity-45 h-[4vh]'>
+        <div className="h-full aspect-square">
+          <FaReact className='w-full h-full text-[#61DAFB]'/>
+        </div>
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     );
   } else if (tag.toLowerCase() === 'nodejs') {
     return (
-      <div className='flex items-center bg-green-300 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
-        <FaNodeJs className='w-full h-full text-[#8cc84b]'/>
+      <div className='flex items-center bg-green-300 p-[1vh] space-x-[0.5vh] rounded-full bg-opacity-45 h-[4vh]'>
+        <div className="h-full aspect-square">
+          <FaNodeJs className='w-full h-full text-[#8cc84b]'/>
+        </div>
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     );
   } else if (tag.toLowerCase() === 'express') {
     return (
-      <div className='flex items-center bg-gray-500 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
-        <SiExpress className='w-full h-full text-[#000]'/>
+      <div className='flex items-center bg-gray-500 p-[1vh] space-x-[0.5vh] rounded-full bg-opacity-45 h-[4vh]'>
+        <div className="h-full aspect-square">
+          <SiExpress className='w-full h-full text-[#000]'/>
+        </div>
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     );
   } else if (tag.toLowerCase() === 'mysql') {
     return (
-      <div className='flex items-center bg-blue-900 p-[1vh] space-x-[1vh] rounded-full bg-opacity-45 h-[4vh]'>
-        <img className='aspect-square' src='/mysql.svg' alt={tag} />
+      <div className='flex items-center bg-blue-900 p-[1vh] space-x-[0.5vh] rounded-full bg-opacity-45 h-[4vh]'>
+        <div className="h-full aspect-square">
+          <img src={`/${tag.toLowerCase()}.svg`} alt={tag} />
+        </div>
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     )
@@ -159,4 +175,4 @@ const Slider = ({ projects }) => {
   );
 }
 
-export default Slider;
+export {Slider, Tag};
