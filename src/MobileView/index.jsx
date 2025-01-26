@@ -5,6 +5,7 @@ import Tilt from "react-parallax-tilt";
 import Carousel from "../components/cubeCarousel";
 import GitHubButton from 'react-github-btn'
 import { Contacts } from "../DesktopView";
+import Marquee from "react-fast-marquee";
 
 const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
     useEffect(() => {
@@ -157,8 +158,69 @@ const Projects = ({ projects }) => {
 
 const Skills = () => {
     return (
-        <div className="flex flex-col justify-center items-center w-full h-screen">
-            <h1 className="text-[3vh] font-black">&lt;Skillset/&gt;</h1>
+        <div className="flex flex-col justify-center items-center px-8 space-y-4 w-full h-screen">
+            <h1 className="text-xl font-black font-mono">&lt;Skillset/&gt;</h1>
+            <div className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center">
+                <p>$&#123;Languages&#125;</p>
+                <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50}>
+                    <div className="flex">
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=go"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=python"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=java"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=bash"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=c"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=javascript"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=matlab"/>
+                    </div>
+                </Marquee>
+            </div>
+            <div className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center">
+                <p>$&#123;WebDevelopment&#125;</p>
+                <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50}>
+                    <div className="flex">
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=react"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=solidjs"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=tailwind"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=vite"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=nextjs"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=wasm"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=typescript"/>
+                    </div>
+                </Marquee>
+            </div>
+            <div className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center">
+                <p>$&#123;BackendDevelopment&#125;</p>
+                <Marquee gradient={true} gradientColor="black" gradientWidth={50} className="opacity-60" speed={50}>
+                    <div className="flex w-full">
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=django"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=flask"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=fastapi"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=expressjs"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=django"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=flask"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=fastapi"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=expressjs"/>
+                    </div>
+                </Marquee>
+            </div>
+            <div className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center">
+                <p>$&#123;Databases&#125;</p>
+                <Marquee gradient={true} gradientColor="black" gradientWidth={50} className="opacity-60" speed={50}>
+                    <div className="flex w-full">
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=mysql"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=sqlite"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=postgres"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=mongodb"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=mysql"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=sqlite"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=postgres"/>
+                        <img className="mr-3" src="https://skillicons.dev/icons?i=mongodb"/>
+                    </div>
+                </Marquee>
+            </div>
+            <div>
+                <h1 className="text-xl font-black font-mono">And a lot more...</h1>
+            </div>
         </div>
     )
 }
@@ -171,7 +233,7 @@ const MobileView = ({ projects }) => {
             </div>
             <div className="flex items-end justify-end w-full h-full absolute pr-2 pb-1 z-10 pointer-events-none">
                 <a className='pointer-events-auto'>
-                    <GitHubButton href="https://github.com/Anga205/Portfolio" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Star Anga205/Portfolio on GitHub">Source Code</GitHubButton>
+                    <GitHubButton href="https://github.com/Anga205/Portfolio" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="Star Anga205/Portfolio on GitHub">Source Code</GitHubButton>
                 </a>
             </div>
             <Drawer />

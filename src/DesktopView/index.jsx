@@ -22,7 +22,7 @@ const NavbarButton = ({ text, redirect = "#" }) => {
 
 const DesktopNavbar = () => {
     return (
-        <nav className="fixed backdrop-blur-md py-[1vh] w-full slide-down select-none animate z-10">
+        <nav className="fixed bg-transparent py-[1vh] w-full slide-down select-none animate z-10">
             <div className="px-[20vh] flex justify-between items-center h-[7vh]">
                 <img src="/anga.svg" className="h-full" />
                 <div className="flex space-x-[4.5vh] text-gray-200">
@@ -30,7 +30,6 @@ const DesktopNavbar = () => {
                     <NavbarButton text="Projects" redirect="/#projects" />
                     <NavbarButton text="Resume" redirect="resume.pdf" />
                     <NavbarButton text="Contact" redirect="/#contacts" />
-                    <NavbarButton text="Skillset" redirect="/#skills" />
                 </div>
             </div>
         </nav>
@@ -219,7 +218,7 @@ const DesktopView = ({ projects }) => {
             <div className="flex items-end justify-between w-full pb-[0.3vh] h-full absolute z-10 pointer-events-none">
                 <div/>
                 <a className='pointer-events-auto pr-[1vh]'>
-                    <GitHubButton href="https://github.com/Anga205/Portfolio" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Star Anga205/Portfolio on GitHub">Source Code</GitHubButton>
+                    <GitHubButton href="https://github.com/Anga205/Portfolio" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="Star Anga205/Portfolio on GitHub">Source Code</GitHubButton>
                 </a>
             </div>
             <DesktopNavbar />
