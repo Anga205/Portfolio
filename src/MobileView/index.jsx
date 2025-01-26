@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./index.css"
 import Drawer from "../components/drawer";
 import Tilt from "react-parallax-tilt";
@@ -9,7 +9,7 @@ import Marquee from "react-fast-marquee";
 
 const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
     useEffect(() => {
-        const elementsToAnimate = document.querySelectorAll('.slide-left-mobile, .slide-right-mobile');
+        const elementsToAnimate = document.querySelectorAll('.home-image-slide-left-mobile, .home-image-slide-right-mobile');
         if (index===yapsDone){
             elementsToAnimate.forEach(element => {
                 element.classList.add('animate')
@@ -19,7 +19,7 @@ const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
     },[yapsDone])
     return (
         <div className="relative w-9/12 select-none" id="image-of-me">
-            <div className='slide-left-mobile'>
+            <div className='home-image-slide-left-mobile'>
                 <img
                     src="/border.png"
                     alt="Background"
@@ -31,7 +31,7 @@ const ImageOfMe = ({ yapsDone, setYapsDone, index }) => {
                 <img
                 src="/me.png"
                 alt="Foreground"
-                className="object-cover slide-right-mobile"
+                className="object-cover home-image-slide-right-mobile"
                 draggable="false"
                 />
             </div>
@@ -157,10 +157,34 @@ const Projects = ({ projects }) => {
 }
 
 const Skills = () => {
+    const skillSections = useRef([]);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-in-skills');
+                } else {
+                    entry.target.classList.remove('slide-in-skills');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        skillSections.current.forEach(section => {
+            observer.observe(section);
+        });
+
+        return () => {
+            skillSections.current.forEach(section => {
+                observer.unobserve(section);
+            });
+        };
+    }, []);
+
     return (
-        <div className="flex flex-col justify-center items-center px-8 space-y-4 w-full h-screen">
-            <h1 className="text-xl font-black font-mono">&lt;Skillset/&gt;</h1>
-            <div className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center">
+        <div className="flex flex-col justify-center items-center px-8 space-y-4 w-full h-[92vh]">
+            <h1 ref={el => skillSections.current[0] = el} className="text-xl font-black font-mono skills-slide-right-mobile">&lt;Skillset/&gt;</h1>
+            <div ref={el => skillSections.current[1] = el} className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center skills-slide-left-mobile">
                 <p>$&#123;Languages&#125;</p>
                 <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50}>
                     <div className="flex">
@@ -174,7 +198,7 @@ const Skills = () => {
                     </div>
                 </Marquee>
             </div>
-            <div className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center">
+            <div ref={el => skillSections.current[2] = el} className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center skills-slide-right-mobile">
                 <p>$&#123;WebDevelopment&#125;</p>
                 <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50}>
                     <div className="flex">
@@ -188,7 +212,7 @@ const Skills = () => {
                     </div>
                 </Marquee>
             </div>
-            <div className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center">
+            <div ref={el => skillSections.current[3] = el} className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center skills-slide-left-mobile">
                 <p>$&#123;BackendDevelopment&#125;</p>
                 <Marquee gradient={true} gradientColor="black" gradientWidth={50} className="opacity-60" speed={50}>
                     <div className="flex w-full">
@@ -203,7 +227,7 @@ const Skills = () => {
                     </div>
                 </Marquee>
             </div>
-            <div className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center">
+            <div ref={el => skillSections.current[4] = el} className="w-full bg-black rounded-md p-2 space-y-2 flex flex-col items-center justify-center skills-slide-right-mobile">
                 <p>$&#123;Databases&#125;</p>
                 <Marquee gradient={true} gradientColor="black" gradientWidth={50} className="opacity-60" speed={50}>
                     <div className="flex w-full">
@@ -218,7 +242,7 @@ const Skills = () => {
                     </div>
                 </Marquee>
             </div>
-            <div>
+            <div ref={el => skillSections.current[5] = el} className="skills-slide-left-mobile">
                 <h1 className="text-xl font-black font-mono">And a lot more...</h1>
             </div>
         </div>
