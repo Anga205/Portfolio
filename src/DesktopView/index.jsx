@@ -210,13 +210,38 @@ const Contacts = () => {
 }
 
 const Skills = () => {
+    const skillSections = useRef([]);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-in-skills-desktop');
+                } else {
+                    entry.target.classList.remove('slide-in-skills-desktop');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        skillSections.current.forEach(section => {
+            observer.observe(section);
+        });
+
+        return () => {
+            skillSections.current
+                .filter(section => section)
+                .forEach(section => {
+                    observer.unobserve(section);
+                });
+        };
+    }, []);
 
     return (
         <div className="flex flex-col justify-center items-center w-full h-screen translate-x-0 snap-center p-[10vh]" id="skills">
-            <h1 className="text-[8vh] font-black font-mono skills-slide-right mb-[3vh]">&lt;Skillset/&gt;</h1>
+            <h1 ref={el => skillSections.current[0] = el} className="text-[8vh] font-black font-mono opacity-0 mb-[3vh]">&lt;Skillset/&gt;</h1>
             <div className='flex w-10/12 space-x-[4vh]'>
                 <div className='flex flex-col w-1/2 space-y-[4vh]'>
-                    <div className="bg-black w-full py-4 px-8 rounded-xl">
+                    <div ref={el => skillSections.current[1] = el} className="bg-black w-full py-4 px-8 rounded-xl skills-slide-left-desktop">
                         <p className='w-full text-center text-[3.4vh] font-semibold'>Languages</p>
                         <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="right">
                             <div className="flex">
@@ -230,9 +255,9 @@ const Skills = () => {
                             </div>
                         </Marquee>
                     </div>
-                    <div className="bg-black w-full py-4 px-8 rounded-xl">
+                    <div ref={el => skillSections.current[2] = el} className="bg-black w-full py-4 px-8 rounded-xl skills-slide-left-desktop">
                         <p className='w-full text-center text-[3.4vh] font-semibold'>Web Development</p>
-                        <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="right">
+                        <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="left">
                             <div className="flex">
                                 <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=react"/>
                                 <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=solidjs"/>
@@ -246,7 +271,7 @@ const Skills = () => {
                     </div>
                 </div>
                 <div className='flex flex-col w-1/2 space-y-[4vh]'>
-                    <div className="bg-black w-full py-4 px-8 rounded-xl">
+                    <div ref={el => skillSections.current[3] = el} className="bg-black w-full py-4 px-8 rounded-xl skills-slide-right-desktop">
                         <p className='w-full text-center text-[3.4vh] font-semibold'>Hosting & Cloud</p>
                         <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="right">
                             <div className="flex">
@@ -260,9 +285,9 @@ const Skills = () => {
                             </div>
                         </Marquee>
                     </div>
-                    <div className="bg-black w-full py-4 px-8 rounded-xl">
+                    <div ref={el => skillSections.current[4] = el} className="bg-black w-full py-4 px-8 rounded-xl skills-slide-right-desktop">
                         <p className='w-full text-center text-[3.4vh] font-semibold'>Backend Development</p>
-                        <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="right">
+                        <Marquee gradient={true} gradientColor="black" gradientWidth={25} className="opacity-60" speed={50} direction="left">
                             <div className="flex">
                                 <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=django"/>
                                 <img className="mr-3 w-[12vh]" src="https://skillicons.dev/icons?i=flask"/>
@@ -277,7 +302,7 @@ const Skills = () => {
                     </div>
                 </div>
             </div>
-            <p className="font-mono w-9/12 text-center text-[3vh] mt-[4vh]">And more! If my skillset doesnt meet your requirements, I can learn your desired tech stack in a pinch!</p>
+            <p ref={el => skillSections.current[5] = el} className="font-mono w-9/12 text-center text-[3vh] mt-[4vh] opacity-0">And more! If my skillset doesnt meet your requirements, I can learn your desired tech stack in a pinch!</p>
         </div>
     )
 }

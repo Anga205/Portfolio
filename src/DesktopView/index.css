@@ -28,3 +28,17 @@
         transform: translateX(0%);
     }
 }
+
+.slide-in-skills-desktop {
+    animation: ease-out slideInSkills 2s forwards;
+}
+
+.skills-slide-left-desktop {
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+.skills-slide-right-desktop {
+    transform: translateX(50%);
+    opacity: 0;
+}
