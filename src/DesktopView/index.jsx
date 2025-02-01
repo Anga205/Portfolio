@@ -4,6 +4,9 @@ import {Slider} from '../components/slideCarousel'
 import Tilt from 'react-parallax-tilt'
 import GitHubButton from 'react-github-btn'
 import Marquee from "react-fast-marquee";
+import { SiGithub, SiLeetcode, SiReddit, SiLinkedin, SiDiscord } from 'react-icons/si'
+import { FaInstagram } from 'react-icons/fa6'
+import emailjs from "@emailjs/browser";
 
 const NavbarButton = ({ text, redirect = "#" }) => {
     const handleClick = () => {
@@ -193,17 +196,222 @@ const contactDetails = [
     { src: "/leetcode.svg", alt: "LeetCode", href: "https://leetcode.com/u/anga205", text: "leetcode.com/u/anga205" },
 ]
 
+const LeetCodeCard = () => {
+
+    const [leetcodeStats, setLeetcodeStats] = useState(null);
+
+    useEffect(() => {
+        const fetchLeetcodeStats = async () => {
+            try {
+                const response = await fetch('https://leetcode-api-faisalshohag.vercel.app/Anga205');
+                const data = await response.json();
+                setLeetcodeStats(data);
+            } catch (error) {
+                console.error('Error fetching LeetCode stats:', error);
+            }
+        };
+
+        fetchLeetcodeStats();
+    }, []);
+
+    const formatNumber = (num) => {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    };
+
+    return (
+        <a href="https://leetcode.com/u/Anga205" target="_blank">
+            <div className='bg-[#282828] w-[30vh] h-[18vh] rounded-[0.7vh] flex p-[1vh] justify-center items-center'>
+                <div className='flex flex-col w-full h-full p-[1vh] items-center justify-center'>
+                    <div className='flex items-center space-x-[0.5vh] mb-[1vh]'>
+                        <SiLeetcode className='text-yellow-500 w-[2vh] h-[2vh]' size={24}/>
+                        <p className='text-white font-semibold text-[1.7vh]'>Anga205's LeetCode Stats</p>
+                    </div>
+                    {leetcodeStats ? (
+                        <div className='flex flex-col space-y-[0.5vh] text-[1.5vh] text-gray-300 w-[26vh]'>
+                            <div className='flex justify-between'>
+                                <span>Total Problems Solved:</span>
+                                <span>{formatNumber(leetcodeStats.totalSolved)}</span>
+                            </div>
+                            <div className='flex justify-between'>
+                                <span>Total Submissions:</span>
+                                <span>{formatNumber(leetcodeStats.totalSubmissions[0].submissions)}</span>
+                            </div>
+                            <div className='flex justify-between'>
+                                <span>Acceptance Rate:</span>
+                                <span>{(leetcodeStats.totalSolved * 100 / leetcodeStats.totalSubmissions[0].submissions).toFixed(2)}%</span>
+                            </div>
+                            <div className='flex justify-between'>
+                                <span>Global Ranking:</span>
+                                <span>{formatNumber(leetcodeStats.ranking)}</span>
+                            </div>
+                        </div>
+                    ) : (
+                        <p className='text-gray-400'>Loading...</p>
+                    )}
+                </div>
+            </div>
+        </a>
+    )
+}
+
+const InstagramCard = () => {
+    return (
+        <a href="https://instagram.com/_anga205" target="_blank" className="select-none" draggable={false}>
+            <div className='bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 rounded-[0.7vh] flex p-[1vh] space-x-[1vh] justify-center items-center'>
+                <FaInstagram className='text-white w-[2vh] h-[2vh]'/>
+                <p className='text-gray-100 text-[1.5vh] font-semibold'>@_anga205</p>
+            </div>
+        </a>
+    )
+}
+
+const RedditCard = () => {
+    return (
+        <a href="https://www.reddit.com/u/anga205" target="_blank" className="select-none" draggable={false}>
+            <div className='bg-[#FF4500] rounded-[0.7vh] flex p-[1vh] space-x-[1vh] justify-center items-center'>
+                <SiReddit className='text-white w-[2vh] h-[2vh]'/>
+                <p className='text-gray-100 text-[1.5vh] font-semibold'>u/Anga205</p>
+            </div>
+        </a>
+    )
+}
+
+const LinkedInCard = () => {
+    return (
+        <a href="https://www.linkedin.com/in/anga" target="_blank" className="select-none" draggable={false}>
+            <div className='bg-[#0077B5] rounded-[0.7vh] flex p-[1vh] space-x-[1vh] justify-center items-center'>
+                <SiLinkedin className='text-white w-[2vh] h-[2vh]'/>
+                <p className='text-gray-100 text-[1.5vh] font-semibold'>Angad Bhalla</p>
+            </div>
+        </a>
+    )
+}
+
+const DiscordCard = () => {
+    return (
+        <a href="https://discord.com/users/anga205" target="_blank" className="select-none" draggable={false}>
+            <div className='bg-[#7289DA] rounded-[0.7vh] flex p-[1vh] space-x-[1vh] justify-center items-center'>
+                <SiDiscord className='text-white w-[2vh] h-[2vh]'/>
+                <p className='text-gray-100 text-[1.5vh] font-semibold'>@anga205</p>
+            </div>
+        </a>
+    )
+}
+
+
+const GitHubCard = () => {
+    
+    return (
+        <a href="https:/github.com/Anga205" target="_blank">
+            <div className='bg-[#282828] w-[30vh] h-[18vh] rounded-[0.7vh] flex p-[1vh] justify-center items-center'>
+                <div className='flex flex-col w-full h-full p-[1vh] items-center justify-center'>
+                    <div className='flex items-center space-x-[0.5vh] mb-[1vh]'>
+                        <SiGithub className='text-white w-[2vh] h-[2vh]'/>
+                        <p className='text-white font-semibold text-[1.7vh]'>Anga205</p>
+                    </div>
+                    <div className='flex flex-col space-y-[0.5vh] text-[1.5vh] text-gray-300 w-[26vh]'>
+                        <div className='flex justify-between'>
+                            <span className='text-center italic'>&quot;i press buttons on a keyboard and sometimes it makes computers do something&quot;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    )
+}
+
+const EmailCard = () => {
+    const [formData, setFormData] = useState({
+        contact: "",
+        message: ""
+    });
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        const formDataWithTimestamp = {
+        ...formData,
+        time: new Date().toLocaleString('en-IN', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true,
+            timeZone: 'Asia/Kolkata'
+        })};
+
+        emailjs.send(
+            "service_0yf90on",
+            "template_jagwyfj",
+            formDataWithTimestamp, // Data to pass to the email template
+            "1JMl4awfqw7WioBaX"
+        )
+        .then(
+            (response) => {
+                console.log("SUCCESS!", response);
+                alert("Email sent successfully!");
+            },
+            (error) => {
+                console.log("FAILED...", error);
+                alert("Failed to send email.");
+            }
+        );
+    };
+    const isEmailValid = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    const isFormValid = () => {
+        return formData.contact && formData.message && isEmailValid(formData.contact);
+    };
+
+    return (
+        <div className="h-full bg-stone-800 rounded-[0.7vh] w-[30vh] p-[2vh] flex flex-col items-center">
+            <p className="font-bold text-[2.5vh] w-full text-center mb-[1vh]">Send me an E-mail</p>
+            <form onSubmit={sendEmail} className="w-full flex flex-col justify-between h-full">
+                <input
+                    type="text"
+                    placeholder="Your Email"
+                    value={formData.contact}
+                    onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                    required
+                    className="text-[1.4vh] w-full p-[1vh] rounded-[0.5vh] bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <textarea
+                    placeholder="Your Message"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    required
+                    className="text-[1.4vh] w-full p-[1vh] rounded-[0.5vh] bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 h-[10vh]"
+                />
+                <button
+                    type="submit"
+                    className="text-[1.4vh] w-full p-[1vh] rounded-[0.5vh] bg-blue-600 text-white font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    disabled={!isFormValid()}
+                >
+                    Send
+                </button>
+            </form>
+        </div>
+    )
+}
+
 const Contacts = () => {
     return (
         <div className="flex flex-col justify-center items-center w-full h-screen translate-x-0 snap-center p-[10vh]" id="contacts">
             <h1 className="text-[5vh] font-black pb-[2vh] text-gray-200">&lt;ContactMe/&gt;</h1>
-            <div className="flex flex-col space-y-4 text-gray-200">
-                {contactDetails.map(({ src, alt, href, text }) => (
-                    <div key={href} className="flex items-center space-x-4">
-                        <img src={src} alt={alt} className="w-[4vh] h-[4vh]" />
-                        <a href={href} target="_blank" rel="noopener noreferrer" className="text-[2.5vh] hover:underline">{text}</a>
-                    </div>
-                ))}
+            <div className="flex space-x-[2vh]">
+                <EmailCard/>
+                <div className="grid grid-cols-2 gap-[2vh]">
+                    <LeetCodeCard />
+                    <GitHubCard />
+                    <InstagramCard />
+                    <LinkedInCard />
+                    <DiscordCard />
+                    <RedditCard />
+                </div>
             </div>
         </div>
     )
