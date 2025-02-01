@@ -384,11 +384,11 @@ const EmailCard = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
-                    className="text-[1.4vh] w-full p-[1vh] rounded-[0.5vh] bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 h-[10vh]"
+                    className="mt-[1vh] text-[1.4vh] w-full p-[1vh] rounded-[0.5vh] bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 h-[10vh]"
                 />
                 <button
                     type="submit"
-                    className="text-[1.4vh] w-full p-[1vh] rounded-[0.5vh] bg-blue-600 text-white font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="mt-[1vh] text-[1.4vh] w-full p-[1vh] rounded-[0.5vh] bg-blue-600 text-white font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     disabled={!isFormValid()}
                 >
                     Send
@@ -402,15 +402,19 @@ const Contacts = () => {
     return (
         <div className="flex flex-col justify-center items-center w-full h-screen translate-x-0 snap-center p-[10vh]" id="contacts">
             <h1 className="text-[5vh] font-black pb-[2vh] text-gray-200">&lt;ContactMe/&gt;</h1>
-            <div className="flex space-x-[2vh]">
+            <div className="flex md:flex-row flex-col space-x-[0vh] md:space-x-[2vh] space-y-[2vh] md:space-y-[0vh]">
                 <EmailCard/>
-                <div className="grid grid-cols-2 gap-[2vh]">
-                    <LeetCodeCard />
-                    <GitHubCard />
-                    <InstagramCard />
-                    <LinkedInCard />
-                    <DiscordCard />
-                    <RedditCard />
+                <div className="flex flex-col space-y-[2vh]">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-[2vh]">
+                        <LeetCodeCard />
+                        <GitHubCard />
+                    </div>
+                    <div className="grid grid-cols-2 w-full gap-[2vh]">
+                        <InstagramCard />
+                        <LinkedInCard />
+                        <DiscordCard />
+                        <RedditCard />
+                    </div>
                 </div>
             </div>
         </div>

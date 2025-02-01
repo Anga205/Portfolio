@@ -269,11 +269,11 @@ const MobileView = ({ projects }) => {
             <section className="flex w-full h-screen snap-center" id="projects">
                 <Projects projects={projects}/>
             </section>
-            <section className="flex w-full h-screen snap-center" id="contacts">
-                <Contacts/>
-            </section>
             <section className="flex w-full h-screen snap-center" id="skills">
                 <Skills/>
+            </section>
+            <section className="flex w-full h-screen snap-center" id="contacts">
+                <Contacts/>
             </section>
         </div>
     )
