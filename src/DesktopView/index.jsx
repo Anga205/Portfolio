@@ -303,7 +303,7 @@ const GitHubCard = () => {
     
     return (
         <a href="https:/github.com/Anga205" target="_blank">
-            <div className='bg-[#282828] w-[30vh] h-[18vh] rounded-[0.7vh] flex p-[1vh] justify-center items-center'>
+            <div className='bg-[#282828] w-[30vh] md:h-[18vh] h-[13vh] rounded-[0.7vh] flex p-[1vh] justify-center items-center'>
                 <div className='flex flex-col w-full h-full p-[1vh] items-center justify-center'>
                     <div className='flex items-center space-x-[0.5vh] mb-[1vh]'>
                         <SiGithub className='text-white w-[2vh] h-[2vh]'/>
@@ -398,22 +398,62 @@ const EmailCard = () => {
     )
 }
 
-const Contacts = () => {
+const Contacts = ({onMobile = false}) => {
+    const contactSections = useRef([]);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-in-skills-desktop');
+                } else {
+                    entry.target.classList.remove('slide-in-skills-desktop');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        contactSections.current.forEach(section => {
+            observer.observe(section);
+        });
+
+        return () => {
+            contactSections.current
+                .filter(section => section)
+                .forEach(section => {
+                    observer.unobserve(section);
+                });
+        };
+    }, []);
+
     return (
         <div className="flex flex-col justify-center items-center w-full h-screen translate-x-0 snap-center p-[10vh]" id="contacts">
-            <h1 className="text-[5vh] font-black pb-[2vh] text-gray-200">&lt;ContactMe/&gt;</h1>
-            <div className="flex md:flex-row flex-col space-x-[0vh] md:space-x-[2vh] space-y-[2vh] md:space-y-[0vh]">
-                <EmailCard/>
-                <div className="flex flex-col space-y-[2vh]">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-[2vh]">
-                        <LeetCodeCard />
-                        <GitHubCard />
+            <h1 ref={el => contactSections.current[0] = el} className="text-[5vh] font-black pb-[2vh] text-gray-200 slide-down-image">&lt;ContactMe/&gt;</h1>
+            <div className={`flex ${onMobile ? 'flex-col space-y-[1vh]' : 'flex-row space-x-[2vh] space-y-[0vh]'}`}>
+                <div ref={el => contactSections.current[1] = el} className="slide-left-image">
+                    <EmailCard />
+                </div>
+                <div className="flex flex-col space-y-[1vh]">
+                    <div className={`grid grid-cols-1 ${onMobile ? 'gap-[1vh]' : 'grid-cols-2 gap-[2vh]'}`}>
+                        <div ref={el => contactSections.current[2] = el} className={`slide-right-image ${onMobile ? '' : 'slide-down-image'}`}>
+                            <LeetCodeCard />
+                        </div>
+                        <div ref={el => contactSections.current[3] = el} className={`slide-left-image ${onMobile ? '' : 'slide-right-image'}`}>
+                            <GitHubCard />
+                        </div>
                     </div>
-                    <div className="grid grid-cols-2 w-full gap-[2vh]">
-                        <InstagramCard />
-                        <LinkedInCard />
-                        <DiscordCard />
-                        <RedditCard />
+                    <div className={`grid grid-cols-2 w-full ${onMobile ? 'gap-[1vh]' : 'gap-[2vh]'}`}>
+                        <div ref={el => contactSections.current[4] = el} className={`slide-right-image ${onMobile ? '' : 'slide-up-image'}`}>
+                            <InstagramCard />
+                        </div>
+                        <div ref={el => contactSections.current[5] = el} className="slide-right-image">
+                            <LinkedInCard />
+                        </div>
+                        <div ref={el => contactSections.current[6] = el} className={`slide-left-image ${onMobile ? '' : 'slide-up-image'}`}>
+                            <DiscordCard />
+                        </div>
+                        <div ref={el => contactSections.current[7] = el} className={`slide-left-image ${onMobile ? '' : 'slide-right-image'}`}>
+                            <RedditCard />
+                        </div>
                     </div>
                 </div>
             </div>

@@ -273,7 +273,7 @@ const MobileView = ({ projects }) => {
                 <Skills/>
             </section>
             <section className="flex w-full h-screen snap-center" id="contacts">
-                <Contacts/>
+                <Contacts onMobile={true}/>
             </section>
         </div>
     )

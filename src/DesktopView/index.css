@@ -8,6 +8,16 @@
     opacity: 0;
 }
 
+.slide-up-image {
+    transform: translateY(75%);
+    opacity: 0;
+}
+
+.slide-down-image {
+    transform: translateY(-50%);
+    opacity: 0;
+}
+
 .slide-down {
     transform: translateY(-50%);
     opacity: 0;
