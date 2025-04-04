@@ -14,7 +14,7 @@ function App({ projects }) {
     window.addEventListener('resize', handleResize);
 
     const handlePrint = (e) => {
-      if (e.ctrlKey && e.key === "p") {
+      if ((e.ctrlKey || e.metaKey) && e.key === "p") {
         e.preventDefault(); // Stop the default print behavior
 
         // Load the PDF into an iframe and trigger print
