@@ -44,6 +44,14 @@ const projects = [
       gradient: "linear-gradient(135deg, #15152a, black, #15152a)",
       github: "https://github.com/Anga205/go-parser",
       tags: ["Go"]
+  },
+  {
+      name: "AngaOS",
+      image: "/angaos.png",
+      description: "AngaOS is a lightweight basic implementation of a bootloader, kernal and shell, written in C and Assembly. It is designed to be simple and easy to understand, making it a great starting point for anyone interested in operating system development.",
+      gradient: "linear-gradient(135deg, #2a0000, black, #2a0000)",
+      github: "https://github.com/Anga205/AngaOS",
+      tags: ["C", "Assembly"]
   }
 ]
 

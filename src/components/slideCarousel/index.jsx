@@ -107,6 +107,24 @@ const Tag = ({ tag }) => {
         <div className='font-mono text-[1.7vh]'>{tag}</div>
       </div>
     )
+  } else if (tag.toLowerCase() === 'assembly') {
+    return (
+      <div className='flex items-center bg-purple-500 p-[1vh] space-x-[0.5vh] rounded-full bg-opacity-45 h-[4vh]'>
+        <div className="h-full aspect-square">
+          <img src={`/${tag.toLowerCase()}.svg`} alt={tag} />
+        </div>
+        <div className='font-mono text-[1.7vh]'>{tag}</div>
+      </div>
+    )
+  } else if (tag.toLowerCase() === 'c') {
+    return (
+      <div className='flex items-center bg-blue-700 p-[1vh] space-x-[0.5vh] rounded-full bg-opacity-45 h-[4vh]'>
+        <div className="h-full aspect-square">
+          <img src={`/${tag.toLowerCase()}.svg`} alt={tag} />
+        </div>
+        <div className='font-mono text-[1.7vh]'>{tag}</div>
+      </div>
+    )
   }
 };
 
