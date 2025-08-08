@@ -186,16 +186,6 @@ const Projects = ({ projects }) => {
     )
 }
 
-const contactDetails = [
-    { src: "/email.svg", alt: "Email", href: "mailto:sayhi@angadbhalla.com", text: "sayhi@angadbhalla.com" },
-    { src: "/linkedin.svg", alt: "LinkedIn", href: "https://www.linkedin.com/in/anga", text: "linkedin.com/in/anga" },
-    { src: "/github.svg", alt: "GitHub", href: "https://github.com/Anga205", text: "github.com/Anga205" },
-    { src: "/instagram.svg", alt: "Instagram", href: "https://instagram.com/_anga205", text: "instagram.com/_anga205" },
-    { src: "/discord.svg", alt: "Discord", href: "https://discord.com/users/anga205", text: "discord.com/users/anga205" },
-    { src: "/reddit.svg", alt: "Reddit", href: "https://www.reddit.com/u/anga205", text: "reddit.com/u/anga205" },
-    { src: "/leetcode.svg", alt: "LeetCode", href: "https://leetcode.com/u/anga205", text: "leetcode.com/u/anga205" },
-]
-
 const LeetCodeCard = () => {
 
     const [leetcodeStats, setLeetcodeStats] = useState(null);
@@ -302,7 +292,7 @@ const DiscordCard = () => {
 const GitHubCard = () => {
     
     return (
-        <a href="https:/github.com/Anga205" target="_blank">
+        <a href="https://github.com/Anga205" target="_blank">
             <div className='bg-[#282828] w-[30vh] md:h-[18vh] h-[13vh] rounded-[0.7vh] flex p-[1vh] justify-center items-center'>
                 <div className='flex flex-col w-full h-full p-[1vh] items-center justify-center'>
                     <div className='flex items-center space-x-[0.5vh] mb-[1vh]'>
