@@ -7,11 +7,11 @@ const projects = [
   {
       name: "AngaDrive",
       image: "/angadrive.png",
-      description: "AngaDrive is a free and open source file hosting service made using Python. It allows users to securely upload, store, and share files with ease. The platform is designed to be highly scalable and efficient, ensuring that users can access their files from anywhere at any time.",
+      description: "AngaDrive is a free and open source file hosting service made using Golang. It allows users to and quickly upload, store, and share files with ease. The platform is designed to be highly fast and efficient, ensuring that users can access their files from anywhere at any time.",
       gradient: "linear-gradient(135deg, #00002a, black, #00002a)",
-      github: "https://github.com/Anga205/AngaDriveV2",
-      link: "https://drive.anga.pro",
-      tags: ["Python", "SQLite"]
+      github: "https://github.com/Anga205/AngaDriveV3",
+      link: "https://drive.anga.codes",
+      tags: ["Solid" ,"Go", "SQLite"]
   },
   {
     name: "Code Execution API",
