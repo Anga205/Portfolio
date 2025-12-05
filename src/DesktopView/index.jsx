@@ -193,7 +193,7 @@ const LeetCodeCard = () => {
     useEffect(() => {
         const fetchLeetcodeStats = async () => {
             try {
-                const response = await fetch('https://leetcode-api-faisalshohag.vercel.app/Anga205');
+                const response = await fetch('https://leetcode-api-faisalshohag.anga.codes/Anga205');
                 const data = await response.json();
                 setLeetcodeStats(data);
             } catch (error) {
