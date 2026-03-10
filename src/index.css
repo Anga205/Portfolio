@@ -2,35 +2,37 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-
-.fade-in {
-    opacity: 0;
+html,
+body,
+#root {
+    margin: 0;
+    min-height: 100%;
 }
 
-.animate {
-    animation: slideIn 0.5s forwards, fadeIn 0.5s forwards;
+body {
+    font-family: sans-serif;
+    background-color: #ffffff;
+    color: #111111;
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1; /* Reveal element during animation */
-    }
+.maintenance-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
 }
 
-@keyframes slideIn {
-    to {
-        transform: translateY(0);
-    }
+.maintenance-page h1 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
 }
 
-
-@keyframes spin {
-    to {
-        transform: rotate(0deg);
-    }
-}
-
-.border-spin {
-    transform: rotate(360deg);
-    animation: spin 60s linear infinite;
+.maintenance-page p {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
 }
